@@ -14,7 +14,7 @@ export TF_VAR_application_name="example-cloud-run-sidecar-python"
 
 docker_tag="$registry/$TF_VAR_application_name:latest"
 
-echo "authenticate with 'google auth login' if necessary
+echo "authenticate with 'google auth login' if necessary"
 
 docker buildx build \
 	--platform linux/amd64 \

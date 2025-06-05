@@ -17,12 +17,19 @@ resource "google_cloud_run_v2_service" "service" {
       }
     }
 
+    timeout = "5s"
+    scaling {
+      min_instance_count = 1
+      max_instance_count = 2
+    }
+
     containers {
       image = var.docker_image
 
       ports {
         container_port = 8080
       }
+
 
       volume_mounts {
         name       = var.shared_volume_base_name
