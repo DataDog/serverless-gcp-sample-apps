@@ -6,7 +6,8 @@
 # Copyright 2025-present Datadog, Inc.
 
 # The tracer is configured to automatically instrument your application by
-# running it with `ddtrace-run` as seen in the `Dockerfile`.
+# running it with `ddtrace-run` as seen in the `Dockerfile`. Otherwise use
+# the `@ddtrace.tracer.wrap` decorator.
 
 import logging
 import os

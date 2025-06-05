@@ -12,7 +12,7 @@ set -xe
 export TF_VAR_datadog_api_key=${DD_API_KEY:?required but not set}
 export TF_VAR_project_name=${GCP_PROJECT_NAME:?required but not set}
 
-export TF_VAR_region="us-east1"
+export TF_VAR_region="us-central1"
 export repository_name="google-cloud-examples"
 
 registry="${TF_VAR_region}-docker.pkg.dev/${TF_VAR_project_name}/${repository_name}"
