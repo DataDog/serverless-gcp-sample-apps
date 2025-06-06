@@ -24,6 +24,9 @@ datadog.initialize(
 app = Flask(__name__)
 
 
+# Write logs to a file that the sidecar can find. Google Cloud provides a
+# mounted directory (`shared-logs`). Crete the necessary subdirectories there
+# and configure the logger to write to a file in that location.
 log_filename = os.environ.get(
     "DD_SERVERLESS_LOG_PATH", "/shared-logs/logs/*.log"
 ).replace("*.log", "app.log")
