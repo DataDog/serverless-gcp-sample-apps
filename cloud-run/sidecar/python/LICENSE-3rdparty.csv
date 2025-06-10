@@ -19,7 +19,7 @@
 "markupsafe","markupsafe","['BSD-2-Clause AND BSD-3-Clause']","[' Copyright 2010 Pallets', 'copyright 2010 Pallets']"
 "pip","https://github.com/pypa/pip","['MIT']","['The pip developers']"
 "prompt-toolkit","prompt-toolkit","['BSD-2-Clause AND BSD-3-Clause']","[' Jonathan Slenders', 'Copyright (c) 2014']"
-"pytest","pytest","[]","[]"
+"pytest","pytest","['MIT']","['Copyright (c) 2004 Holger Krekel and others']"
 "pytz","pytz","['MIT']","['Copyright (c) 2003-2019 Stuart Bishop <stuart@stuartbishop.net>']"
 "redis","redis","['MIT']","[' Redis', ' inc.', 'Copyright (c) 2022']"
 "setuptools","https://github.com/pypa/setuptools","['MIT']","['Python Packaging Authority']"
