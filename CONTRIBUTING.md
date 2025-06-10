@@ -4,6 +4,14 @@ Welcome! We are glad you are interested in contributing to the Serverless GCP Sa
 
 ## Contributing to code
 
+### Third-party Licenses
+
+We maintain a lists of third-party licenses in the LICENSE-3rdparty.csv files.
+These file should be updated whenever we add a non-datadog dependency to this
+project. The internal `dd-license-attribution` tool may be helpful for this.
+
+- [Cloud Run - Sidecar - Python - LICENSE-3rdparty.csv](./cloud-run/sidecar/python/LICENSE-3rdparty.csv)
+
 ### Bug fixes
 
 If you have identified an issue that is already labeled as `type/bug` that hasn’t been assigned to anyone, feel free to claim it, and ask a maintainer to add you as assignee.
