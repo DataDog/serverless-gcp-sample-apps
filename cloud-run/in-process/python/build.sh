@@ -17,7 +17,7 @@ gcloud config set project ${PROJECT_ID}
 gcloud auth configure-docker us-central1-docker.pkg.dev --quiet
 
 echo -e "\n====== Building Docker image ======"
-docker build --quiet --platform linux/amd64 -t ${IMAGE_NAME} .
+docker build --quiet --platform linux/amd64 --build-arg GCP_PROJECT_NAME=${GCP_PROJECT_NAME} -t ${IMAGE_NAME} .
 docker push ${IMAGE_NAME}
 
 # Deploy to Cloud Run
