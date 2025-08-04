@@ -6,7 +6,7 @@ PROJECT_ID=${PROJECT_ID:?required but not set}
 GCP_PROJECT_NAME=${GCP_PROJECT_NAME:?required but not set}
 REPO_NAME=${REPO_NAME:?required but not set}
 REGION="us-central1"
-IMAGE_NAME="us-central1-docker.pkg.dev/${PROJECT_ID}/${REPO_NAME}/${GCP_PROJECT_NAME}:latest"
+IMAGE_NAME="${REGION}-docker.pkg.dev/${PROJECT_ID}/${REPO_NAME}/${GCP_PROJECT_NAME}:latest"
 PROJECT_PATH="$(cd "$(dirname "$0")" && pwd)"
 
 # Build
@@ -14,7 +14,7 @@ echo -e "\n====== Initializing ======"
 cd $PROJECT_PATH
 gcloud config set project ${PROJECT_ID}
 
-gcloud auth configure-docker us-central1-docker.pkg.dev --quiet
+gcloud auth configure-docker ${REGION}-docker.pkg.dev --quiet
 
 echo -e "\n====== Building Docker image ======"
 docker build --quiet --platform linux/amd64 --build-arg GCP_PROJECT_NAME=${GCP_PROJECT_NAME} -t ${IMAGE_NAME} .
