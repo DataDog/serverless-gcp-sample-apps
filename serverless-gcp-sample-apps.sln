@@ -1,0 +1,32 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "cloud-run", "cloud-run", "{C09394DA-B43D-A502-7FAB-DE071EB772D9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "in-process", "in-process", "{39ECD25C-6A74-BF22-428E-91BEB481BA65}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotnet", "cloud-run\in-process\dotnet\dotnet.csproj", "{F129779F-FEB1-33EA-10A5-E7CC728BAEF8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F129779F-FEB1-33EA-10A5-E7CC728BAEF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F129779F-FEB1-33EA-10A5-E7CC728BAEF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F129779F-FEB1-33EA-10A5-E7CC728BAEF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F129779F-FEB1-33EA-10A5-E7CC728BAEF8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{39ECD25C-6A74-BF22-428E-91BEB481BA65} = {C09394DA-B43D-A502-7FAB-DE071EB772D9}
+		{F129779F-FEB1-33EA-10A5-E7CC728BAEF8} = {39ECD25C-6A74-BF22-428E-91BEB481BA65}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {19E5406D-858C-4EF3-BF9D-4ADF6E7048CB}
+	EndGlobalSection
+EndGlobal
