@@ -32,4 +32,5 @@ gcloud run deploy $GCP_PROJECT_NAME \
   --cpu=1 \
   --port=8080 \
   --set-env-vars=DD_API_KEY=$DD_API_KEY \
+  --labels=service=$DD_SERVICE \
   --project=$PROJECT_ID
