@@ -13,9 +13,9 @@ EXPOSE 8080
 
 COPY --from=datadog/serverless-init:1 /datadog-init /app/datadog-init
 
-ARG GCP_PROJECT_NAME
+ARG DD_SERVICE
 ENV DD_SITE=datadoghq.com
-ENV DD_SERVICE=${GCP_PROJECT_NAME}
+ENV DD_SERVICE=${DD_SERVICE}
 ENV DD_SOURCE=go
 ENV DD_LOGS_ENABLED=true
 

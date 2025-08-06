@@ -37,9 +37,9 @@ RUN a2enmod rewrite
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html/storage /var/www/html/bootstrap/cache
 
-ARG GCP_PROJECT_NAME
+ARG DD_SERVICE
 ENV DD_SITE=datadoghq.com
-ENV DD_SERVICE=${GCP_PROJECT_NAME}
+ENV DD_SERVICE=${DD_SERVICE}
 ENV DD_SOURCE=php
 ENV DD_LOGS_ENABLED=true
 ENV DD_LOGS_INJECTION=true

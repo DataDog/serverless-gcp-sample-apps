@@ -12,9 +12,9 @@ COPY --from=datadog/serverless-init:1 /datadog-init /app/datadog-init
 
 COPY . .
 
-ARG GCP_PROJECT_NAME
+ARG DD_SERVICE
 ENV DD_SITE=datadoghq.com
-ENV DD_SERVICE=${GCP_PROJECT_NAME}
+ENV DD_SERVICE=${DD_SERVICE}
 ENV DD_SOURCE=ruby
 ENV DD_LOGS_ENABLED=true
 

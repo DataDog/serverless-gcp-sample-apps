@@ -25,9 +25,9 @@ COPY --from=datadog/serverless-init:1 / /app/
 RUN chmod +x /app/dotnet.sh && /app/dotnet.sh
 
 # Datadog configuration
-ARG GCP_PROJECT_NAME
+ARG DD_SERVICE
 ENV DD_SITE=datadoghq.com
-ENV DD_SERVICE=${GCP_PROJECT_NAME}
+ENV DD_SERVICE=${DD_SERVICE}
 ENV DD_SOURCE=csharp
 ENV DD_LOGS_ENABLED=true
 ENV DD_LOGS_INJECTION=true
