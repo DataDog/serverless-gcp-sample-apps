@@ -1,22 +1,4 @@
-github.com/DataDog/appsec-internal-go,https://github.com/DataDog/appsec-internal-go/blob/v1.13.0/LICENSE,Apache-2.0
-github.com/DataDog/datadog-agent/comp/core/tagger/origindetection,https://github.com/DataDog/datadog-agent/blob/comp/core/tagger/origindetection/v0.66.1/comp/core/tagger/origindetection/LICENSE,Apache-2.0
-github.com/DataDog/datadog-agent/pkg/obfuscate,https://github.com/DataDog/datadog-agent/blob/pkg/obfuscate/v0.66.1/pkg/obfuscate/LICENSE,Apache-2.0
-github.com/DataDog/datadog-agent/pkg/proto/pbgo/trace,https://github.com/DataDog/datadog-agent/blob/pkg/proto/v0.66.1/pkg/proto/LICENSE,Apache-2.0
-github.com/DataDog/datadog-agent/pkg/remoteconfig/state,https://github.com/DataDog/datadog-agent/blob/pkg/remoteconfig/state/v0.66.1/pkg/remoteconfig/state/LICENSE,Apache-2.0
-github.com/DataDog/datadog-agent/pkg/trace,https://github.com/DataDog/datadog-agent/blob/pkg/trace/v0.66.1/pkg/trace/LICENSE,Apache-2.0
-github.com/DataDog/datadog-agent/pkg/util/log,https://github.com/DataDog/datadog-agent/blob/pkg/util/log/v0.66.1/pkg/util/log/LICENSE,Apache-2.0
-github.com/DataDog/datadog-agent/pkg/util/scrubber,https://github.com/DataDog/datadog-agent/blob/pkg/util/scrubber/v0.66.1/pkg/util/scrubber/LICENSE,Apache-2.0
-github.com/DataDog/datadog-agent/pkg/version,https://github.com/DataDog/datadog-agent/blob/pkg/version/v0.66.1/pkg/version/LICENSE,Apache-2.0
-github.com/DataDog/datadog-go/v5/statsd,https://github.com/DataDog/datadog-go/blob/v5.6.0/LICENSE.txt,MIT
-github.com/DataDog/dd-trace-go/contrib/net/http/v2,https://github.com/DataDog/dd-trace-go/blob/contrib/net/http/v2.1.0/contrib/net/http/LICENSE,Apache-2.0
-github.com/DataDog/dd-trace-go/contrib/sirupsen/logrus/v2,https://github.com/DataDog/dd-trace-go/blob/contrib/sirupsen/logrus/v2.1.0/contrib/sirupsen/logrus/LICENSE,Apache-2.0
-github.com/DataDog/dd-trace-go/v2,https://github.com/DataDog/dd-trace-go/blob/v2.1.0/LICENSE,Apache-2.0
-github.com/DataDog/go-libddwaf/v4,https://github.com/DataDog/go-libddwaf/blob/v4.3.0/LICENSE,Apache-2.0
-github.com/DataDog/go-runtime-metrics-internal/pkg/runtimemetrics,https://github.com/DataDog/go-runtime-metrics-internal/blob/7edb7c2ad56a/LICENSE,Apache-2.0
-github.com/DataDog/go-sqllexer,https://github.com/DataDog/go-sqllexer/blob/v0.1.6/LICENSE,MIT
-github.com/DataDog/go-tuf,https://github.com/DataDog/go-tuf/blob/v1.1.0-0.5.2/LICENSE,BSD-3-Clause
-github.com/DataDog/opentelemetry-mapping-go/pkg/otlp/attributes,https://github.com/DataDog/opentelemetry-mapping-go/blob/pkg/otlp/attributes/v0.26.0/pkg/otlp/attributes/LICENSE,Apache-2.0
-github.com/DataDog/sketches-go/ddsketch,https://github.com/DataDog/sketches-go/blob/v1.4.7/LICENSE,Apache-2.0
+Package,License URL,License Type
 github.com/Masterminds/semver/v3,https://github.com/Masterminds/semver/blob/v3.3.1/LICENSE.txt,MIT
 github.com/cespare/xxhash/v2,https://github.com/cespare/xxhash/blob/v2.3.0/LICENSE.txt,MIT
 github.com/cihub/seelog,https://github.com/cihub/seelog/blob/f561c5e57575/LICENSE.txt,BSD-3-Clause
