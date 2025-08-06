@@ -6,7 +6,7 @@ PROJECT_ID=${PROJECT_ID:?required but not set}
 GCP_PROJECT_NAME=${GCP_PROJECT_NAME:?required but not set}
 REPO_NAME=${REPO_NAME:?required but not set}
 DD_SERVICE=${DD_SERVICE:?required but not set}
-REGION="us-central1"
+REGION=${REGION:-us-central1}
 IMAGE_NAME="${REGION}-docker.pkg.dev/${PROJECT_ID}/${REPO_NAME}/${GCP_PROJECT_NAME}:latest"
 PROJECT_PATH="$(cd "$(dirname "$0")" && pwd)"
 
