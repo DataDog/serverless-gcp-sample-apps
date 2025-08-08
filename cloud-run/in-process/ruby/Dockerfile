@@ -1,4 +1,10 @@
-FROM ruby:3.3
+FROM ruby:3.3-slim
+
+# Install build dependencies and ca-certificates
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 
@@ -13,10 +19,10 @@ COPY --from=datadog/serverless-init:1 /datadog-init /app/datadog-init
 COPY . .
 
 ARG DD_SERVICE
-ENV DD_SITE=datadoghq.com
-ENV DD_SERVICE=${DD_SERVICE}
-ENV DD_SOURCE=ruby
-ENV DD_LOGS_ENABLED=true
+ENV DD_SITE=datadoghq.com \
+  DD_SERVICE=${DD_SERVICE} \
+  DD_SOURCE=ruby \
+  DD_LOGS_ENABLED=true
 
 ENTRYPOINT ["/app/datadog-init"]
 CMD ["bundle", "exec", "ruby", "app.rb"]

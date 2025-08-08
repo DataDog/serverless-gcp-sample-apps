@@ -1,13 +1,11 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
-# Copy project file and restore dependencies
-COPY *.csproj ./
-RUN dotnet restore
+COPY *.csproj *.sln ./
+RUN dotnet restore dotnet.csproj
 
-# Copy source code and build
-COPY . ./
-RUN dotnet publish -c Release -o out
+COPY . .
+RUN dotnet publish dotnet.csproj -c Release -o out --no-restore
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
@@ -26,11 +24,11 @@ RUN chmod +x /app/dotnet.sh && /app/dotnet.sh
 
 # Datadog configuration
 ARG DD_SERVICE
-ENV DD_SITE=datadoghq.com
-ENV DD_SERVICE=${DD_SERVICE}
-ENV DD_SOURCE=csharp
-ENV DD_LOGS_ENABLED=true
-ENV DD_LOGS_INJECTION=true
+ENV DD_SITE=datadoghq.com \
+  DD_SERVICE=${DD_SERVICE} \
+  DD_SOURCE=csharp \
+  DD_LOGS_ENABLED=true \
+  DD_LOGS_INJECTION=true
 
 ENTRYPOINT ["/app/datadog-init"]
 CMD ["dotnet", "dotnet.dll"]

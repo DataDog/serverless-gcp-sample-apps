@@ -1,5 +1,8 @@
 FROM openjdk:21-jdk-slim
 
+# ca-certificates is required for slim images
+RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates
+
 WORKDIR /app
 
 # Copy Maven wrapper and dependencies
@@ -21,11 +24,11 @@ ENV JAVA_TOOL_OPTIONS="-javaagent:agent.jar"
 
 # Environment variables
 ARG DD_SERVICE
-ENV DD_SITE=datadoghq.com
-ENV DD_SERVICE=${DD_SERVICE}
-ENV DD_SOURCE=java
-ENV DD_LOGS_ENABLED=true
-ENV DD_LOGS_INJECTION=true
+ENV DD_SITE=datadoghq.com \
+  DD_SERVICE=${DD_SERVICE} \
+  DD_SOURCE=java \
+  DD_LOGS_ENABLED=true \
+  DD_LOGS_INJECTION=true
 
 ENTRYPOINT ["/app/datadog-init"]
 CMD ["./mvnw", "spring-boot:run"]
