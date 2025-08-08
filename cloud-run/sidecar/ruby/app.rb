@@ -8,6 +8,9 @@
 require 'sinatra'
 require 'logger'
 require 'datadog/auto_instrument'
+require 'fileutils'
+
+LOG_FILE = '/shared-volume/logs/app.log'
 
 Datadog.configure do |c|
   # Add additional configuration here.
@@ -18,7 +21,11 @@ set :environment, :production
 set :port, 8080
 set :bind, '0.0.0.0'
 
-logger = Logger.new(STDOUT)
+# Create log directory if it doesn't exist
+FileUtils.mkdir_p(File.dirname(LOG_FILE))
+
+# Create logger that writes to file in shared volume
+logger = Logger.new(LOG_FILE)
 logger.formatter = proc do |severity, datetime, progname, msg|
   "[#{datetime}] #{severity}: [#{Datadog::Tracing.log_correlation}] #{msg}\n"
 end
