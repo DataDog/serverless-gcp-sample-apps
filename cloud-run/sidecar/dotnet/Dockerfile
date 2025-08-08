@@ -23,19 +23,10 @@ COPY --from=build /app/out .
 ENV PORT=8080
 EXPOSE 8080
 
-# Copy Datadog serverless-init
-COPY --from=datadog/serverless-init:1 / /app/
+# Datadog automatic instrumentation environment variables
+ENV CORECLR_ENABLE_PROFILING=1 \
+  CORECLR_PROFILER={846F5F1C-F9AE-4B07-969E-05C26BC060D8} \
+  CORECLR_PROFILER_PATH=/app/datadog/linux-x64/Datadog.Trace.ClrProfiler.Native.so \
+  DD_DOTNET_TRACER_HOME=/app/datadog
 
-# Install Datadog .NET tracer
-RUN chmod +x /app/dotnet.sh && /app/dotnet.sh
-
-# Datadog configuration
-ARG DD_SERVICE
-ENV DD_SITE=datadoghq.com \
-  DD_SERVICE=${DD_SERVICE} \
-  DD_SOURCE=csharp \
-  DD_LOGS_ENABLED=true \
-  DD_LOGS_INJECTION=true
-
-ENTRYPOINT ["/app/datadog-init"]
 CMD ["dotnet", "dotnet.dll"]
