@@ -53,7 +53,7 @@ gcloud run deploy $GCP_PROJECT_NAME \
   --region=$REGION \
   --platform=managed \
   --allow-unauthenticated \
-  --memory=512Mi \
+  --memory=1024Mi \
   --cpu=1 \
   --port=8080 \
   --set-env-vars=DD_API_KEY=$DD_API_KEY \
