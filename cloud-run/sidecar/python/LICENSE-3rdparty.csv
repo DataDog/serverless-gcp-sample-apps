@@ -116,7 +116,6 @@
 "semantic-version","2.10.0","BSD License"
 "semver","2.10.0","BSD License"
 "six","1.16.0","MIT License"
-"structlog","25.4.0","Apache Software License; MIT License"
 "toml","0.10.2","MIT License"
 "tomlkit","0.13.2","MIT License"
 "typed_ast","1.5.5","Apache License 2.0"
