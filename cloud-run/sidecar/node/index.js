@@ -5,6 +5,7 @@
 // Datadog (https://www.datadoghq.com/)
 // Copyright 2025-present Datadog, Inc.
 
+const LOG_FILE = "/shared-volume/logs/app.log";
 const tracer = require('dd-trace').init({
   logInjection: true,
 });
@@ -20,7 +21,7 @@ const logger = createLogger({
   format: format.json(),
   transports: [
     new transports.Console(),
-    new transports.File({ filename: `/shared-volume/logs/app.log` }),
+    new transports.File({ filename: LOG_FILE }),
   ]
 });
 
