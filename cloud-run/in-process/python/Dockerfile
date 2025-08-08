@@ -1,4 +1,4 @@
-FROM python:3.11-slim
+FROM python:3.13-slim
 
 WORKDIR /app
 
@@ -12,7 +12,6 @@ ENV PORT=8080
 EXPOSE 8080
 
 COPY --from=datadog/serverless-init:1 /datadog-init /app/datadog-init
-RUN pip install --target /dd_tracer/python/ ddtrace
 
 COPY . .
 
@@ -24,4 +23,4 @@ ENV DD_SITE=datadoghq.com \
   PYTHONUNBUFFERED=1
 
 ENTRYPOINT ["/app/datadog-init"]
-CMD ["/dd_tracer/python/bin/ddtrace-run", "python", "app.py"]
+CMD ["ddtrace-run", "python", "app.py"]
