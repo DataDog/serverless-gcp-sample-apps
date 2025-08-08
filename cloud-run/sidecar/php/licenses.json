@@ -1,0 +1,73 @@
+{
+    "name": "laravel-app",
+    "version": "1.0.0",
+    "license": [],
+    "dependencies": [
+        {
+            "name": "laravel/framework",
+            "version": "^11.0",
+            "license": "MIT",
+            "repository": "https://github.com/laravel/framework"
+        },
+        {
+            "name": "symfony/console",
+            "version": "^7.0",
+            "license": "MIT",
+            "repository": "https://github.com/symfony/console"
+        },
+        {
+            "name": "symfony/http-foundation",
+            "version": "^7.0",
+            "license": "MIT",
+            "repository": "https://github.com/symfony/http-foundation"
+        },
+        {
+            "name": "symfony/http-kernel",
+            "version": "^7.0",
+            "license": "MIT",
+            "repository": "https://github.com/symfony/http-kernel"
+        },
+        {
+            "name": "symfony/routing",
+            "version": "^7.0",
+            "license": "MIT",
+            "repository": "https://github.com/symfony/routing"
+        },
+        {
+            "name": "illuminate/foundation",
+            "version": "^11.0",
+            "license": "MIT",
+            "repository": "https://github.com/illuminate/foundation"
+        },
+        {
+            "name": "illuminate/support",
+            "version": "^11.0",
+            "license": "MIT",
+            "repository": "https://github.com/illuminate/support"
+        },
+        {
+            "name": "illuminate/container",
+            "version": "^11.0",
+            "license": "MIT",
+            "repository": "https://github.com/illuminate/container"
+        },
+        {
+            "name": "monolog/monolog",
+            "version": "^3.0",
+            "license": "MIT",
+            "repository": "https://github.com/Seldaek/monolog"
+        },
+        {
+            "name": "psr/log",
+            "version": "^3.0",
+            "license": "MIT",
+            "repository": "https://github.com/php-fig/log"
+        },
+        {
+            "name": "composer/semver",
+            "version": "^3.0",
+            "license": "MIT",
+            "repository": "https://github.com/composer/semver"
+        }
+    ]
+}
