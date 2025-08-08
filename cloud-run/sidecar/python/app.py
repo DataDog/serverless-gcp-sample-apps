@@ -10,10 +10,11 @@
 # the `@ddtrace.tracer.wrap` decorator.
 
 import logging
+import sys
 import os
 
 import datadog
-from flask import Flask, Response
+from flask import Flask
 
 # The sidecar exposes a dogstatsd port.
 datadog.initialize(
@@ -27,31 +28,35 @@ app = Flask(__name__)
 # Write logs to a file that the sidecar can find. Google Cloud provides a
 # mounted directory (`shared-logs`). Crete the necessary subdirectories there
 # and configure the logger to write to a file in that location.
-log_filename = os.environ.get(
-    "DD_SERVERLESS_LOG_PATH", "/shared-logs/logs/*.log"
-).replace("*.log", "app.log")
-os.makedirs(os.path.dirname(log_filename), exist_ok=True)
+LOG_FILE = '/shared-volume/logs/app.log'
+os.makedirs(os.path.dirname(LOG_FILE), exist_ok=True)
+
+FORMAT = ('%(asctime)s %(levelname)s [%(name)s] [%(filename)s:%(lineno)d] '
+          '[dd.service=%(dd.service)s dd.env=%(dd.env)s dd.version=%(dd.version)s dd.trace_id=%(dd.trace_id)s dd.span_id=%(dd.span_id)s] '
+          '- %(message)s')
 
 logging.basicConfig(
     level=logging.INFO,
-    filename=log_filename,
+    format=FORMAT,
+    handlers=[
+        logging.FileHandler(LOG_FILE),
+        logging.StreamHandler(sys.stdout)
+    ]
 )
 logger = logging.getLogger(__name__)
+logger.level = logging.INFO
 
+app = Flask(__name__)
 
-@app.route("/")
+@app.route('/')
 def home():
     # This log will be submitted to Datadog through the shared volume
-    logger.info("Hello!")
+    logger.info("Hello world!")
 
-    # Serverless apps must use the distributeion metric type.
+    # Serverless apps must use the distribution metric type.
     datadog.statsd.distribution("our-sample-app.sample-metric", 1)
+    return 'Hello World!', 200
 
-    return Response(
-        '{"msg": "A traced endpoint with custom metrics"}',
-        status=200,
-        mimetype="application/json",
-    )
-
-
-app.run(host="0.0.0.0", port=int(os.environ.get("PORT", "8080")))
+if __name__ == '__main__':
+    logger.info("starting server on port 8080")
+    app.run(host='0.0.0.0', port=8080)

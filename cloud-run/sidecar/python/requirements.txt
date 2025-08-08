@@ -1,3 +1,4 @@
-datadog==0.51.0
-ddtrace==3.8.1
-flask==3.1.1
+datadog==0.52.1
+ddtrace==3.11.2
+Flask==3.1.1
+gunicorn==21.2.0

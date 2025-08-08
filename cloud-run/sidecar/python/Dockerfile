@@ -7,10 +7,14 @@
 
 FROM python:3.13-slim
 
-COPY requirements.txt app.py .
+WORKDIR /app
+
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
+COPY . .
+
+ENV PORT=8080
 EXPOSE 8080
 
-# Apply the auto-instrumentation provided by the ddtrace dependency.
 CMD ["ddtrace-run", "python", "app.py"]
