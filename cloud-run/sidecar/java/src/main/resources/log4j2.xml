@@ -1,0 +1,9 @@
+<Configuration>
+  <Appenders>
+    <Console name="Console"><JsonLayout compact="true" eventEol="true" properties="true"/></Console>
+    <File name="FileAppender" fileName="/shared-volume/logs/app.log">
+      <JsonLayout compact="true" eventEol="true" properties="true"/>
+    </File>
+  </Appenders>
+  <Loggers><Root level="info"><AppenderRef ref="FileAppender"/></Root></Loggers>
+</Configuration>
