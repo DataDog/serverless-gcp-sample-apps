@@ -1,7 +1,11 @@
-"name","version","licenses"
+component,version,license
 base64,0.3.0,"Simplified BSD,ruby"
 bundler,2.4.10,MIT
+datadog,2.19.0,"Apache 2.0,New BSD"
+datadog-ruby_core_source,3.4.1,MIT
 ffi,1.17.2,New BSD
+libdatadog,18.1.0.1.0,Apache 2.0
+libddwaf,1.24.1.0.3,New BSD
 logger,1.7.0,"Simplified BSD,ruby"
 msgpack,1.8.0,Apache 2.0
 mustermann,3.0.4,MIT
