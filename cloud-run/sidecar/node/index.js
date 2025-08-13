@@ -5,7 +5,8 @@
 // Datadog (https://www.datadoghq.com/)
 // Copyright 2025-present Datadog, Inc.
 
-const LOG_FILE = "/shared-volume/logs/app.log";
+const rawLogPath = process.env.DD_SERVERLESS_LOG_PATH;
+const LOG_FILE = rawLogPath && rawLogPath !== '' ? rawLogPath.replace('*.log', 'app.log') : '/shared-volume/logs/app.log';
 const tracer = require('dd-trace').init({
   logInjection: true,
 });

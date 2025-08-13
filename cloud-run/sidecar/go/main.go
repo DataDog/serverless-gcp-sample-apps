@@ -12,6 +12,7 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+	"strings"
 
 	httptrace "github.com/DataDog/dd-trace-go/contrib/net/http/v2"
 	dd_logrus "github.com/DataDog/dd-trace-go/contrib/sirupsen/logrus/v2"
@@ -20,7 +21,14 @@ import (
 )
 
 const PORT = "8080"
-const LOG_FILE = "/shared-volume/logs/app.log"
+
+var LOG_FILE = func() string {
+	raw := os.Getenv("DD_SERVERLESS_LOG_PATH")
+	if raw != "" {
+		return strings.Replace(raw, "*.log", "app.log", 1)
+	}
+	return "/shared-volume/logs/app.log"
+}()
 
 func main() {
 	tracer.Start()

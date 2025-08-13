@@ -20,6 +20,14 @@ import org.apache.logging.log4j.Logger;
 @RestController
 public class App {
 
+    static {
+        String envLogPath = System.getenv("DD_SERVERLESS_LOG_PATH");
+        String resolvedLogPath = (envLogPath != null && !envLogPath.isEmpty())
+                ? envLogPath.replace("*.log", "app.log")
+                : "/shared-volume/logs/app.log";
+        System.setProperty("LOG_FILE", resolvedLogPath);
+    }
+
     private static final Logger logger = LogManager.getLogger(App.class);
 
     public static void main(String[] args) {

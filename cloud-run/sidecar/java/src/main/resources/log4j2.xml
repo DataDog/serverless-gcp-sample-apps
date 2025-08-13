@@ -1,7 +1,7 @@
 <Configuration>
   <Appenders>
     <Console name="Console"><JsonLayout compact="true" eventEol="true" properties="true"/></Console>
-    <File name="FileAppender" fileName="/shared-volume/logs/app.log">
+    <File name="FileAppender" fileName="${sys:LOG_FILE:-/shared-volume/logs/app.log}">
       <JsonLayout compact="true" eventEol="true" properties="true"/>
     </File>
   </Appenders>

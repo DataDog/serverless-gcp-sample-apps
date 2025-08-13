@@ -10,7 +10,12 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Log;
 
-const LOG_FILE = '/shared-volume/logs/app.log';
+// Use env var DD_SERVERLESS_LOG_PATH if set; default to /shared-volume/logs/app.log
+$envLogPath = getenv('DD_SERVERLESS_LOG_PATH');
+$resolvedLogPath = ($envLogPath !== false && $envLogPath !== '')
+   ? str_replace('*.log', 'app.log', $envLogPath)
+   : '/shared-volume/logs/app.log';
+define('LOG_FILE', $resolvedLogPath);
 
 // Create directory if it doesn't exist
 if (!is_dir(dirname(LOG_FILE))) {
