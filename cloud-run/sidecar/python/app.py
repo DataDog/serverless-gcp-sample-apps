@@ -31,6 +31,7 @@ app = Flask(__name__)
 LOG_FILE = os.environ.get(
     "DD_SERVERLESS_LOG_PATH", "/shared-logs/logs/*.log"
 ).replace("*.log", "app.log")
+print('LOG_FILE: ', LOG_FILE)
 os.makedirs(os.path.dirname(LOG_FILE), exist_ok=True)
 
 FORMAT = ('%(asctime)s %(levelname)s [%(name)s] [%(filename)s:%(lineno)d] '

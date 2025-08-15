@@ -26,6 +26,7 @@ public class App {
                 ? envLogPath.replace("*.log", "app.log")
                 : "/shared-volume/logs/app.log";
         System.setProperty("LOG_FILE", resolvedLogPath);
+        System.out.println("LOG_FILE: " + resolvedLogPath);
     }
 
     private static final Logger logger = LogManager.getLogger(App.class);

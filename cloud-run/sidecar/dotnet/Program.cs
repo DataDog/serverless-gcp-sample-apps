@@ -9,6 +9,7 @@ using Serilog;
 
 var rawLogPath = Environment.GetEnvironmentVariable("DD_SERVERLESS_LOG_PATH");
 var LOG_FILE = string.IsNullOrEmpty(rawLogPath) ? "/shared-volume/logs/app.log" : rawLogPath.Replace("*.log", "app.log");
+Console.WriteLine($"LOG_FILE: {LOG_FILE}");
 
 var builder = WebApplication.CreateBuilder(args);
 

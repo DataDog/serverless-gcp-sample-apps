@@ -23,11 +23,15 @@ import (
 const PORT = "8080"
 
 var LOG_FILE = func() string {
-	raw := os.Getenv("DD_SERVERLESS_LOG_PATH")
-	if raw != "" {
-		return strings.Replace(raw, "*.log", "app.log", 1)
+	log_file := os.Getenv("DD_SERVERLESS_LOG_PATH")
+	if log_file != "" {
+		log_file = strings.Replace(log_file, "*.log", "app.log", 1)
+	} else {
+		log_file = "/shared-volume/logs/app.log"
 	}
-	return "/shared-volume/logs/app.log"
+
+	fmt.Printf("LOG_FILE: %s\n", log_file)
+	return log_file
 }()
 
 func main() {

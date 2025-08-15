@@ -10,7 +10,8 @@ require 'logger'
 require 'datadog/auto_instrument'
 require 'fileutils'
 
-LOG_FILE = '/shared-volume/logs/app.log'
+LOG_FILE = (ENV['DD_SERVERLESS_LOG_PATH']&.gsub('*.log', 'app.log')) || '/shared-volume/logs/app.log'
+puts "LOG_FILE: #{LOG_FILE}"
 
 Datadog.configure do |c|
   # Add additional configuration here.

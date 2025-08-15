@@ -7,6 +7,7 @@
 
 const rawLogPath = process.env.DD_SERVERLESS_LOG_PATH;
 const LOG_FILE = rawLogPath && rawLogPath !== '' ? rawLogPath.replace('*.log', 'app.log') : '/shared-volume/logs/app.log';
+console.log('LOG_FILE: ', LOG_FILE);
 const tracer = require('dd-trace').init({
   logInjection: true,
 });
