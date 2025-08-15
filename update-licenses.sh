@@ -15,6 +15,8 @@
 # - Maven (for Java)
 # - Docker (for PHP)
 
+set -e
+
 RUNTIMES=(
   "python"
   "node"

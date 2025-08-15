@@ -17,8 +17,4 @@ applications.
         - [Ruby](./cloud-run/in-process/ruby/)
         - [PHP](./cloud-run/in-process/php/)
 
-To update licenses, use one of the following commands:
-- Python: `dd-license-attribution https://github.com/DataDog/serverless-gcp-sample-apps/ --no-npm-strategy --no-gopkg-strategy > LICENSE-3rdparty.csv`
-- Node.js: `dd-license-attribution https://github.com/DataDog/serverless-gcp-sample-apps/ --no-pypi-strategy --no-gopkg-strategy > LICENSE-3rdparty.csv`
-- Go: `dd-license-attribution https://github.com/DataDog/serverless-gcp-sample-apps/ --no-npm-strategy --no-pypi-strategy > LICENSE-3rdparty.csv`
--
+To update licenses, run the `./update-licenses.sh` script. View the comments in the README to see what dependencies need to be installed first.
