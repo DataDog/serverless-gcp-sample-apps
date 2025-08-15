@@ -1,7 +1,14 @@
+# Unless explicitly stated otherwise all files in this repository are licensed
+# under the Apache 2.0 License.
+
+# This product includes software developped at
+# Datadog (https://www.datadoghq.com/)
+# Copyright 2025-present Datadog, Inc.
+
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
-COPY *.csproj *.sln ./
+COPY *.csproj ./
 RUN dotnet restore dotnet.csproj
 
 COPY . .

@@ -1,3 +1,10 @@
+# Unless explicitly stated otherwise all files in this repository are licensed
+# under the Apache 2.0 License.
+
+# This product includes software developped at
+# Datadog (https://www.datadoghq.com/)
+# Copyright 2025-present Datadog, Inc.
+
 require 'sinatra'
 require 'logger'
 require 'datadog/auto_instrument'
@@ -17,6 +24,6 @@ logger.formatter = proc do |severity, datetime, progname, msg|
 end
 
 get '/' do
-  logger.info "A\nB\nC\nD"
+  logger.info "Hello World!"
   'Hello World!'
 end

@@ -1,4 +1,11 @@
-FROM python:3.11-slim
+# Unless explicitly stated otherwise all files in this repository are licensed
+# under the Apache 2.0 License.
+
+# This product includes software developped at
+# Datadog (https://www.datadoghq.com/)
+# Copyright 2025-present Datadog, Inc.
+
+FROM python:3.13-slim
 
 WORKDIR /app
 
@@ -12,7 +19,6 @@ ENV PORT=8080
 EXPOSE 8080
 
 COPY --from=datadog/serverless-init:1 /datadog-init /app/datadog-init
-RUN pip install --target /dd_tracer/python/ ddtrace
 
 COPY . .
 
@@ -24,4 +30,4 @@ ENV DD_SITE=datadoghq.com \
   PYTHONUNBUFFERED=1
 
 ENTRYPOINT ["/app/datadog-init"]
-CMD ["/dd_tracer/python/bin/ddtrace-run", "python", "app.py"]
+CMD ["ddtrace-run", "python", "app.py"]
