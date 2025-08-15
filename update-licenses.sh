@@ -37,7 +37,7 @@ RUNTIME_UPDATE_COMMANDS=(
   # java
   "rm -f aggregate-third-party-report.html && mvn -q license:add-third-party"
   # dotnet
-  "dotnet-project-licenses -i . -j --outfile licenses.json"
+  "dotnet-project-licenses -i . -j --outfile licenses.json && jq . licenses.json > licenses_temp.json && mv licenses_temp.json licenses.json"
   # ruby
   "(echo '"component","version","license"'; license_finder report --format csv --quiet) > LICENSE-3rdparty.csv"
   # php. This is hacky and should be improved.
