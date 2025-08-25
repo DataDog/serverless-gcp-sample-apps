@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# Build and deploy script for in-process Cloud Run apps
+# Build and deploy script for in-container Cloud Run apps
 # Usage: ./build_and_deploy.sh <language>
 # Example: ./build_and_deploy.sh go
 

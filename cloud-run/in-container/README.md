@@ -1,6 +1,6 @@
-# Google Cloud Run In-Process Instrumentation
+# Google Cloud Run In-Container Instrumentation
 
-Examples for instrumenting Google Cloud Run services with an in-process serverless-init Datadog agent.
+Examples for instrumenting Google Cloud Run services with an in-container serverless-init Datadog agent.
 
 ## Available Languages
 
