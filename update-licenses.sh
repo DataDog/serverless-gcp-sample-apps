@@ -45,7 +45,7 @@ RUNTIME_UPDATE_COMMANDS=(
 )
 
 APP_DIRS=(
-  "cloud-run/in-process/"
+  "cloud-run/in-container/"
   "cloud-run/sidecar/"
 )
 
