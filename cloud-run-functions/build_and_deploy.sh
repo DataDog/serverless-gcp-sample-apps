@@ -46,7 +46,7 @@ case $LANGUAGE in
         RUNTIME="java21"
         ;;
     dotnet)
-        ENTRY_POINT="main"
+        ENTRY_POINT="Main.Function"
         RUNTIME="dotnet8"
         ;;
     php)
@@ -73,6 +73,8 @@ echo -e "\n====== Deploying Cloud Run Function (Gen 2) ======"
 ENV_VARS="DD_SERVICE=$DD_SERVICE"
 if [ "$LANGUAGE" = "java" ]; then
     ENV_VARS="$ENV_VARS,JAVA_TOOL_OPTIONS=-javaagent:dd-java-agent.jar"
+elif [ "$LANGUAGE" = "dotnet" ]; then
+    ENV_VARS="$ENV_VARS,CORECLR_ENABLE_PROFILING=1,CORECLR_PROFILER={846F5F1C-F9AE-4B07-969E-05C26BC060D8},CORECLR_PROFILER_PATH=/workspace/datadog/linux-x64/Datadog.Trace.ClrProfiler.Native.so,DD_DOTNET_TRACER_HOME=/workspace/datadog"
 fi
 
 gcloud functions deploy $GCP_FUNCTION_NAME \
