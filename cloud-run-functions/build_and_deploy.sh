@@ -31,15 +31,15 @@ REGION=${REGION:-us-central1}
 case $LANGUAGE in
     python)
         ENTRY_POINT="main"
-        RUNTIME="python311"
+        RUNTIME="python313"
         ;;
     node)
         ENTRY_POINT="main"
-        RUNTIME="nodejs20"
+        RUNTIME="nodejs22"
         ;;
     go)
         ENTRY_POINT="main"
-        RUNTIME="go121"
+        RUNTIME="go124"
         ;;
     java)
         ENTRY_POINT="main"
@@ -47,7 +47,7 @@ case $LANGUAGE in
         ;;
     dotnet)
         ENTRY_POINT="main"
-        RUNTIME="dotnet6"
+        RUNTIME="dotnet8"
         ;;
     php)
         ENTRY_POINT="main"
