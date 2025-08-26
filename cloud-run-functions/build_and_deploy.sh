@@ -42,8 +42,8 @@ case $LANGUAGE in
         RUNTIME="go124"
         ;;
     java)
-        ENTRY_POINT="main"
-        RUNTIME="java17"
+        ENTRY_POINT="com.example.App"
+        RUNTIME="java21"
         ;;
     dotnet)
         ENTRY_POINT="main"
@@ -69,6 +69,12 @@ cd "$PROJECT_PATH"
 gcloud config set project ${PROJECT_ID}
 
 echo -e "\n====== Deploying Cloud Run Function (Gen 2) ======"
+
+ENV_VARS="DD_SERVICE=$DD_SERVICE"
+if [ "$LANGUAGE" = "java" ]; then
+    ENV_VARS="$ENV_VARS,JAVA_TOOL_OPTIONS=-javaagent:dd-java-agent.jar"
+fi
+
 gcloud functions deploy $GCP_FUNCTION_NAME \
   --gen2 \
   --runtime=$RUNTIME \
@@ -79,7 +85,7 @@ gcloud functions deploy $GCP_FUNCTION_NAME \
   --allow-unauthenticated \
   --memory=512Mi \
   --timeout=60s \
-  --set-env-vars=DD_SERVICE=$DD_SERVICE \
+  --set-env-vars=$ENV_VARS \
   --project=$PROJECT_ID
 
 echo -e "\n====== Instrumenting with datadog-ci ======"
