@@ -47,6 +47,7 @@ RUNTIME_UPDATE_COMMANDS=(
 APP_DIRS=(
   "cloud-run/in-container/"
   "cloud-run/sidecar/"
+  "cloud-run-functions/"
 )
 
 if [ -z "${GITHUB_TOKEN:-}" ]; then
