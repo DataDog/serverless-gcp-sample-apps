@@ -66,11 +66,13 @@ gcloud config set project ${PROJECT_ID}
 
 echo -e "\n====== Deploying Cloud Run Function (Gen 2) ======"
 
-ENV_VARS="DD_SERVICE=$DD_SERVICE"
-if [ "$LANGUAGE" = "java" ]; then
-    ENV_VARS="$ENV_VARS,JAVA_TOOL_OPTIONS=-javaagent:dd-java-agent.jar"
-elif [ "$LANGUAGE" = "dotnet" ]; then
-    ENV_VARS="$ENV_VARS,CORECLR_ENABLE_PROFILING=1,CORECLR_PROFILER={846F5F1C-F9AE-4B07-969E-05C26BC060D8},CORECLR_PROFILER_PATH=/workspace/datadog/linux-x64/Datadog.Trace.ClrProfiler.Native.so,DD_DOTNET_TRACER_HOME=/workspace/datadog"
+# Check for env file
+ENV_VARS_FILE="$PROJECT_PATH/env.yaml"
+ENV_VARS_ARGS=""
+
+if [ -f "$ENV_VARS_FILE" ]; then
+    echo "Found environment file: $ENV_VARS_FILE"
+    ENV_VARS_ARGS="--env-vars-file=$ENV_VARS_FILE"
 fi
 
 gcloud functions deploy $GCP_FUNCTION_NAME \
@@ -83,7 +85,7 @@ gcloud functions deploy $GCP_FUNCTION_NAME \
   --allow-unauthenticated \
   --memory=512Mi \
   --timeout=60s \
-  --set-env-vars=$ENV_VARS \
+  $ENV_VARS_ARGS \
   --project=$PROJECT_ID
 
 echo -e "\n====== Instrumenting with datadog-ci ======"
