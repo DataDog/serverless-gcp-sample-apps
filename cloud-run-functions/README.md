@@ -11,7 +11,6 @@ services with a Datadog sidecar.
 - [Java](./java/)
 - [.NET](./dotnet/)
 - [Ruby](./ruby/)
-- [PHP](./php/)
 
 ## Quick Deploy
 

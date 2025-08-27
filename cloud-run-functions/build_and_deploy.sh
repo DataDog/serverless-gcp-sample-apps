@@ -6,7 +6,7 @@
 
 if [ $# -ne 1 ]; then
     echo "Usage: $0 <language>"
-    echo "Available languages: go, python, node, java, php, ruby, dotnet"
+    echo "Available languages: go, python, node, java, ruby, dotnet"
     exit 1
 fi
 
@@ -48,10 +48,6 @@ case $LANGUAGE in
     dotnet)
         ENTRY_POINT="Main.Function"
         RUNTIME="dotnet8"
-        ;;
-    php)
-        ENTRY_POINT="main"
-        RUNTIME="php82"
         ;;
     ruby)
         ENTRY_POINT="main"
