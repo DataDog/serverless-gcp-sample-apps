@@ -52,6 +52,16 @@
                     <target>17</target>
                 </configuration>
             </plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>license-maven-plugin</artifactId>
+				<version>2.4.0</version>
+				<configuration>
+					<outputDirectory>${project.basedir}</outputDirectory>
+					<thirdPartyFilename>aggregate-third-party-report.html</thirdPartyFilename>
+					<fileTemplate>/org/codehaus/mojo/license/third-party-file-groupByMultiLicense.ftl</fileTemplate>
+				</configuration>
+			</plugin>
         </plugins>
     </build>
 </project>
