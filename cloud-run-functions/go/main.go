@@ -36,13 +36,20 @@ var LOG_FILE = func() string {
 func init() {
 	tracer.Start()
 
-	os.MkdirAll(filepath.Dir(LOG_FILE), 0755)
-	logFile, err := os.OpenFile(LOG_FILE, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
-	if err != nil {
-		logrus.Fatalf("Failed to open log file: %v", err)
+	// Set up logging
+	var writers []io.Writer
+	writers = append(writers, os.Stdout)
+
+	if os.Getenv("DD_SERVERLESS_LOG_PATH") != "" {
+		os.MkdirAll(filepath.Dir(LOG_FILE), 0755)
+		logFile, err := os.OpenFile(LOG_FILE, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+		if err != nil {
+			logrus.Fatalf("Failed to open log file: %v", err)
+		}
+		writers = append(writers, logFile)
 	}
 
-	logrus.SetOutput(io.MultiWriter(logFile, os.Stdout))
+	logrus.SetOutput(io.MultiWriter(writers...))
 	logrus.SetFormatter(&logrus.JSONFormatter{})
 	logrus.AddHook(&dd_logrus.DDContextLogHook{})
 

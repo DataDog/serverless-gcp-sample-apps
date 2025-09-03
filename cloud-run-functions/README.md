@@ -25,8 +25,8 @@ Use the build and deploy script:
 ./build_and_deploy.sh <language>
 ```
 
-Deployment may fail the first time running the deploy script. This is expected because the shared volume hasn't been configured yet.
-Let `datadog-ci instrument` run, then try running the deploy script again.
+Logs may not be submitted to Datadog the first time running the deploy script. This is expected because the shared volume hasn't been configured yet.
+Let `datadog-ci instrument` run, then try running the deploy script again to properly configure logs.
 
 ### Examples
 

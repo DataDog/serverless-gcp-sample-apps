@@ -23,12 +23,14 @@ datadog.initialize(
 # Write logs to a file that the sidecar can find. Google Cloud provides a
 # mounted directory (`shared-volume`). Create the necessary subdirectories there
 # and configure the logger to write to a file in that location.
-ddtrace.patch(logging=True)
-LOG_FILE = os.environ.get(
-    "DD_SERVERLESS_LOG_PATH", "/shared-volume/logs/*.log"
-).replace("*.log", "app.log")
-print('LOG_FILE: ', LOG_FILE)
-os.makedirs(os.path.dirname(LOG_FILE), exist_ok=True)
+handlers = [logging.StreamHandler(sys.stdout)]
+if "DD_SERVERLESS_LOG_PATH" in os.environ:
+    LOG_FILE = os.environ.get(
+        "DD_SERVERLESS_LOG_PATH", "/shared-volume/logs/*.log"
+    ).replace("*.log", "app.log")
+    print('LOG_FILE: ', LOG_FILE)
+    os.makedirs(os.path.dirname(LOG_FILE), exist_ok=True)
+    handlers.append(logging.FileHandler(LOG_FILE))
 
 FORMAT = ('%(asctime)s %(levelname)s [%(name)s] [%(filename)s:%(lineno)d] '
           '[dd.service=%(dd.service)s dd.env=%(dd.env)s dd.version=%(dd.version)s dd.trace_id=%(dd.trace_id)s dd.span_id=%(dd.span_id)s] '
@@ -37,10 +39,7 @@ FORMAT = ('%(asctime)s %(levelname)s [%(name)s] [%(filename)s:%(lineno)d] '
 logging.basicConfig(
     level=logging.INFO,
     format=FORMAT,
-    handlers=[
-        logging.FileHandler(LOG_FILE),
-        logging.StreamHandler(sys.stdout)
-    ],
+    handlers=handlers,
     force=True
 )
 logger = logging.getLogger(__name__)
