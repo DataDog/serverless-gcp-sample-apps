@@ -7,7 +7,6 @@
 
 using Google.Cloud.Functions.Framework;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
 using System;
 using System.IO;
 using System.Threading.Tasks;
@@ -23,18 +22,20 @@ public class Function : IHttpFunction
 
     static Function()
     {
+        var loggerConfig = new LoggerConfiguration()
+            .WriteTo.Console(new JsonFormatter(renderMessage: true));
+
+        // Only add the file appender if the environment variable is set
         var rawLogPath = Environment.GetEnvironmentVariable("DD_SERVERLESS_LOG_PATH");
-        LOG_FILE = string.IsNullOrEmpty(rawLogPath) ? "/shared-volume/logs/app.log" : rawLogPath.Replace("*.log", "app.log");
-        Console.WriteLine($"LOG_FILE: {LOG_FILE}");
+        if (!string.IsNullOrEmpty(rawLogPath))
+        {
+            LOG_FILE = rawLogPath.Replace("*.log", "app.log");
+            Console.WriteLine($"LOG_FILE: {LOG_FILE}");
+            Directory.CreateDirectory(Path.GetDirectoryName(LOG_FILE)!);
+            loggerConfig.WriteTo.File(new JsonFormatter(renderMessage: true), LOG_FILE);
+        }
 
-        // Ensure the directory exists
-        Directory.CreateDirectory(Path.GetDirectoryName(LOG_FILE)!);
-
-        // Configure Serilog for structured logging with Datadog correlation
-        Log.Logger = new LoggerConfiguration()
-            .WriteTo.Console(new JsonFormatter(renderMessage: true))
-            .WriteTo.File(new JsonFormatter(renderMessage: true), LOG_FILE)
-            .CreateLogger();
+        Log.Logger = loggerConfig.CreateLogger();
     }
 
     public async Task HandleAsync(HttpContext context)
