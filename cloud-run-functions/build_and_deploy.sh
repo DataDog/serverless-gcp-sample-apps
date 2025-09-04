@@ -75,13 +75,10 @@ if [ -f "$ENV_VARS_FILE" ]; then
     ENV_VARS_ARGS="--env-vars-file=$ENV_VARS_FILE"
 fi
 
-gcloud functions deploy $GCP_FUNCTION_NAME \
-  --gen2 \
-  --runtime=$RUNTIME \
+gcloud run deploy $GCP_FUNCTION_NAME \
+  --function=$ENTRY_POINT \
   --region=$REGION \
   --source=. \
-  --entry-point=$ENTRY_POINT \
-  --trigger-http \
   --allow-unauthenticated \
   --memory=512Mi \
   --timeout=60s \
