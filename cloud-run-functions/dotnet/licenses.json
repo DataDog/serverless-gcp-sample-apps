@@ -1,0 +1,104 @@
+[
+  {
+    "PackageName": "Datadog.Trace.Bundle",
+    "PackageVersion": "3.19.0",
+    "PackageUrl": "https://docs.datadoghq.com/tracing/trace_collection/dd_libraries",
+    "Copyright": "Copyright 2017 Datadog, Inc.",
+    "Authors": [
+      "Datadog"
+    ],
+    "Description": "Auto-instrumentation assets for Datadog APM",
+    "LicenseUrl": "https://licenses.nuget.org/Apache-2.0",
+    "LicenseType": "Apache-2.0",
+    "Repository": {
+      "Type": "git",
+      "Url": "https://github.com/DataDog/dd-trace-dotnet.git",
+      "Commit": "ebf355011f8a40d1a44ac649eb6d049e392c9d7a"
+    }
+  },
+  {
+    "PackageName": "Google.Cloud.Functions.Hosting",
+    "PackageVersion": "2.0.0",
+    "PackageUrl": "https://github.com/GoogleCloudPlatform/functions-framework-dotnet",
+    "Copyright": "Copyright 2020 Google LLC",
+    "Authors": [
+      "Google LLC"
+    ],
+    "Description": "The Google Cloud Functions Framework Hosting package makes it easy to run a web server to execute functions.",
+    "LicenseUrl": "https://www.nuget.org/packages/Google.Cloud.Functions.Hosting/2.0.0/License",
+    "LicenseType": "LICENSE",
+    "Repository": {
+      "Type": "git",
+      "Url": "https://github.com/GoogleCloudPlatform/functions-framework-dotnet",
+      "Commit": "ba600bebc239db143588804a4dad19054036853b"
+    }
+  },
+  {
+    "PackageName": "Serilog",
+    "PackageVersion": "4.2.0",
+    "PackageUrl": "https://serilog.net/",
+    "Copyright": "Copyright © Serilog Contributors",
+    "Authors": [
+      "Serilog Contributors"
+    ],
+    "Description": "Simple .NET logging with fully-structured events",
+    "LicenseUrl": "https://licenses.nuget.org/Apache-2.0",
+    "LicenseType": "Apache-2.0",
+    "Repository": {
+      "Type": "git",
+      "Url": "https://github.com/serilog/serilog",
+      "Commit": "c00e17fdeb615d36c062569f7342f72c9ece4aa7"
+    }
+  },
+  {
+    "PackageName": "Serilog.Formatting.Compact",
+    "PackageVersion": "3.0.0",
+    "PackageUrl": "https://github.com/serilog/serilog-formatting-compact",
+    "Copyright": "",
+    "Authors": [
+      "Serilog Contributors"
+    ],
+    "Description": "A simple, compact JSON-based event format for Serilog.",
+    "LicenseUrl": "https://licenses.nuget.org/Apache-2.0",
+    "LicenseType": "Apache-2.0",
+    "Repository": {
+      "Type": "git",
+      "Url": "https://github.com/serilog/serilog-formatting-compact",
+      "Commit": "8472ad8ccb97432ca7efbe78d8bc0eaf61db5356"
+    }
+  },
+  {
+    "PackageName": "Serilog.Sinks.Console",
+    "PackageVersion": "6.0.0",
+    "PackageUrl": "https://github.com/serilog/serilog-sinks-console",
+    "Copyright": "",
+    "Authors": [
+      "Serilog Contributors"
+    ],
+    "Description": "A Serilog sink that writes log events to the console/terminal.",
+    "LicenseUrl": "https://licenses.nuget.org/Apache-2.0",
+    "LicenseType": "Apache-2.0",
+    "Repository": {
+      "Type": "git",
+      "Url": "https://github.com/serilog/serilog-sinks-console",
+      "Commit": "4c9a7b6946dfd2d7f07a792c40bb3d46af835ee9"
+    }
+  },
+  {
+    "PackageName": "Serilog.Sinks.File",
+    "PackageVersion": "6.0.0",
+    "PackageUrl": "https://github.com/serilog/serilog-sinks-file",
+    "Copyright": "",
+    "Authors": [
+      "Serilog Contributors"
+    ],
+    "Description": "Write Serilog events to text files in plain or JSON format.",
+    "LicenseUrl": "https://licenses.nuget.org/Apache-2.0",
+    "LicenseType": "Apache-2.0",
+    "Repository": {
+      "Type": "git",
+      "Url": "https://github.com/serilog/serilog-sinks-file",
+      "Commit": "c7b9bc3d87f9bb98572a52286135efda1e608ad6"
+    }
+  }
+]
