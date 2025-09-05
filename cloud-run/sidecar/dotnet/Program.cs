@@ -1,7 +1,7 @@
 // Unless explicitly stated otherwise all files in this repository are licensed
 // under the Apache 2.0 License.
 
-// This product includes software developped at
+// This product includes software developed at
 // Datadog (https://www.datadoghq.com/)
 // Copyright 2025-present Datadog, Inc.
 
@@ -28,9 +28,8 @@ var app = builder.Build();
 app.MapGet("/", (ILogger<Program> logger) =>
 {
     logger.LogInformation("Hello World!");
-    return Results.Ok("Ok");
+    return Results.Ok("Hello World!");
 });
-var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
-app.Urls.Add($"http://*:{port}");
+app.Urls.Add("http://*:8080");
 
 app.Run();
