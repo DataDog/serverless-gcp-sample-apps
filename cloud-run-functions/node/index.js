@@ -28,8 +28,7 @@ const logger = createLogger({
 });
 
 function handler(req, res) {
-  logger.info(process.env)
-  logger.info('Hello world!');
+  logger.info('Hello World!');
   return res.status(200).send('Hello World!');
 }
 
