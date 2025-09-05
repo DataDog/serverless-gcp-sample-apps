@@ -49,8 +49,6 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 logger.level = logging.INFO
 
-app = Flask(__name__)
-
 @app.route('/')
 def home():
     # This log will be submitted to Datadog through the shared volume
