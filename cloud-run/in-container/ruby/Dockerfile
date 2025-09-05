@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 WORKDIR /app
 
-COPY Gemfile .
+COPY Gemfile Gemfile.lock ./
 RUN bundle install
 
 ENV PORT=8080
