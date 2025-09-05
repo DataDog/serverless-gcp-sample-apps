@@ -28,9 +28,8 @@ var app = builder.Build();
 app.MapGet("/", (ILogger<Program> logger) =>
 {
     logger.LogInformation("Hello World!");
-    return Results.Ok("Ok");
+    return Results.Ok("Hello World!");
 });
-var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
-app.Urls.Add($"http://*:{port}");
+app.Urls.Add("http://*:8080");
 
 app.Run();
