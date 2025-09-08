@@ -1,0 +1,95 @@
+version: 2
+updates:
+  # Node.js
+  - package-ecosystem: "npm"
+    directory: "/cloud-run/sidecar/node"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "npm"
+    directory: "/cloud-run/in-container/node"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "npm"
+    directory: "/cloud-run-functions/node"
+    schedule:
+      interval: "weekly"
+
+  # Python
+  - package-ecosystem: "pip"
+    directory: "/cloud-run/sidecar/python"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "pip"
+    directory: "/cloud-run/in-container/python"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "pip"
+    directory: "/cloud-run-functions/python"
+    schedule:
+      interval: "weekly"
+
+  # Go
+  - package-ecosystem: "gomod"
+    directory: "/cloud-run/sidecar/go"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "gomod"
+    directory: "/cloud-run/in-container/go"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "gomod"
+    directory: "/cloud-run-functions/go"
+    schedule:
+      interval: "weekly"
+
+  # Java
+  - package-ecosystem: "maven"
+    directory: "/cloud-run/sidecar/java"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "maven"
+    directory: "/cloud-run/in-container/java"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "maven"
+    directory: "/cloud-run-functions/java"
+    schedule:
+      interval: "weekly"
+
+  # .NET
+  - package-ecosystem: "nuget"
+    directory: "/cloud-run/sidecar/dotnet"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "nuget"
+    directory: "/cloud-run/in-container/dotnet"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "nuget"
+    directory: "/cloud-run-functions/dotnet"
+    schedule:
+      interval: "weekly"
+
+  # Ruby
+  - package-ecosystem: "bundler"
+    directory: "/cloud-run/sidecar/ruby"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "bundler"
+    directory: "/cloud-run/in-container/ruby"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "bundler"
+    directory: "/cloud-run-functions/ruby"
+    schedule:
+      interval: "weekly"
+
+  # PHP - Cloud Run only (not supported in Functions)
+  - package-ecosystem: "composer"
+    directory: "/cloud-run/sidecar/php"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "composer"
+    directory: "/cloud-run/in-container/php"
+    schedule:
+      interval: "weekly"
