@@ -5,91 +5,171 @@ updates:
     directory: "/cloud-run/sidecar/node"
     schedule:
       interval: "weekly"
+    groups:
+      npm-dependencies:
+        patterns:
+          - "*"
   - package-ecosystem: "npm"
     directory: "/cloud-run/in-container/node"
     schedule:
       interval: "weekly"
+    groups:
+      npm-dependencies:
+        patterns:
+          - "*"
   - package-ecosystem: "npm"
     directory: "/cloud-run-functions/node"
     schedule:
       interval: "weekly"
+    groups:
+      npm-dependencies:
+        patterns:
+          - "*"
 
   # Python
   - package-ecosystem: "pip"
     directory: "/cloud-run/sidecar/python"
     schedule:
       interval: "weekly"
+    groups:
+      python-dependencies:
+        patterns:
+          - "*"
   - package-ecosystem: "pip"
     directory: "/cloud-run/in-container/python"
     schedule:
       interval: "weekly"
+    groups:
+      python-dependencies:
+        patterns:
+          - "*"
   - package-ecosystem: "pip"
     directory: "/cloud-run-functions/python"
     schedule:
       interval: "weekly"
+    groups:
+      python-dependencies:
+        patterns:
+          - "*"
 
   # Go
   - package-ecosystem: "gomod"
     directory: "/cloud-run/sidecar/go"
     schedule:
       interval: "weekly"
+    groups:
+      go-dependencies:
+        patterns:
+          - "*"
   - package-ecosystem: "gomod"
     directory: "/cloud-run/in-container/go"
     schedule:
       interval: "weekly"
+    groups:
+      go-dependencies:
+        patterns:
+          - "*"
   - package-ecosystem: "gomod"
     directory: "/cloud-run-functions/go"
     schedule:
       interval: "weekly"
+    groups:
+      go-dependencies:
+        patterns:
+          - "*"
 
   # Java
   - package-ecosystem: "maven"
     directory: "/cloud-run/sidecar/java"
     schedule:
       interval: "weekly"
+    groups:
+      java-dependencies:
+        patterns:
+          - "*"
   - package-ecosystem: "maven"
     directory: "/cloud-run/in-container/java"
     schedule:
       interval: "weekly"
+    groups:
+      java-dependencies:
+        patterns:
+          - "*"
   - package-ecosystem: "maven"
     directory: "/cloud-run-functions/java"
     schedule:
       interval: "weekly"
+    groups:
+      java-dependencies:
+        patterns:
+          - "*"
 
   # .NET
   - package-ecosystem: "nuget"
     directory: "/cloud-run/sidecar/dotnet"
     schedule:
       interval: "weekly"
+    groups:
+      dotnet-dependencies:
+        patterns:
+          - "*"
   - package-ecosystem: "nuget"
     directory: "/cloud-run/in-container/dotnet"
     schedule:
       interval: "weekly"
+    groups:
+      dotnet-dependencies:
+        patterns:
+          - "*"
   - package-ecosystem: "nuget"
     directory: "/cloud-run-functions/dotnet"
     schedule:
       interval: "weekly"
+    groups:
+      dotnet-dependencies:
+        patterns:
+          - "*"
 
   # Ruby
   - package-ecosystem: "bundler"
     directory: "/cloud-run/sidecar/ruby"
     schedule:
       interval: "weekly"
+    groups:
+      ruby-dependencies:
+        patterns:
+          - "*"
   - package-ecosystem: "bundler"
     directory: "/cloud-run/in-container/ruby"
     schedule:
       interval: "weekly"
+    groups:
+      ruby-dependencies:
+        patterns:
+          - "*"
   - package-ecosystem: "bundler"
     directory: "/cloud-run-functions/ruby"
     schedule:
       interval: "weekly"
+    groups:
+      ruby-dependencies:
+        patterns:
+          - "*"
 
   # PHP - Cloud Run only (not supported in Functions)
   - package-ecosystem: "composer"
     directory: "/cloud-run/sidecar/php"
     schedule:
       interval: "weekly"
+    groups:
+      php-dependencies:
+        patterns:
+          - "*"
   - package-ecosystem: "composer"
     directory: "/cloud-run/in-container/php"
     schedule:
       interval: "weekly"
+    groups:
+      php-dependencies:
+        patterns:
+          - "*"
