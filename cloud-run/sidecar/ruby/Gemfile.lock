@@ -2,16 +2,20 @@ GEM
   remote: https://rubygems.org/
   specs:
     base64 (0.3.0)
-    datadog (2.19.0)
+    datadog (2.20.0)
       datadog-ruby_core_source (~> 3.4, >= 3.4.1)
       libdatadog (~> 18.1.0.1.0)
-      libddwaf (~> 1.24.1.0.3)
+      libddwaf (~> 1.24.1.1.0)
       logger
       msgpack
     datadog-ruby_core_source (3.4.1)
     ffi (1.17.2-arm64-darwin)
+    ffi (1.17.2-x86_64-linux-gnu)
     libdatadog (18.1.0.1.0)
-    libddwaf (1.24.1.0.3-arm64-darwin)
+    libdatadog (18.1.0.1.0-x86_64-linux)
+    libddwaf (1.24.1.1.0-arm64-darwin)
+      ffi (~> 1.0)
+    libddwaf (1.24.1.1.0-x86_64-linux)
       ffi (~> 1.0)
     logger (1.7.0)
     msgpack (1.8.0)
@@ -42,6 +46,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-23
+  x86_64-linux
 
 DEPENDENCIES
   datadog
