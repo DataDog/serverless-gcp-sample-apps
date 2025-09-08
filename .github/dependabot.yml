@@ -4,7 +4,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/cloud-run/sidecar/node"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     groups:
       npm-dependencies:
         patterns:
@@ -12,7 +12,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/cloud-run/in-container/node"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     groups:
       npm-dependencies:
         patterns:
@@ -20,7 +20,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/cloud-run-functions/node"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     groups:
       npm-dependencies:
         patterns:
@@ -30,7 +30,7 @@ updates:
   - package-ecosystem: "pip"
     directory: "/cloud-run/sidecar/python"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     groups:
       python-dependencies:
         patterns:
@@ -38,7 +38,7 @@ updates:
   - package-ecosystem: "pip"
     directory: "/cloud-run/in-container/python"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     groups:
       python-dependencies:
         patterns:
@@ -46,7 +46,7 @@ updates:
   - package-ecosystem: "pip"
     directory: "/cloud-run-functions/python"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     groups:
       python-dependencies:
         patterns:
@@ -56,7 +56,7 @@ updates:
   - package-ecosystem: "gomod"
     directory: "/cloud-run/sidecar/go"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     groups:
       go-dependencies:
         patterns:
@@ -64,7 +64,7 @@ updates:
   - package-ecosystem: "gomod"
     directory: "/cloud-run/in-container/go"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     groups:
       go-dependencies:
         patterns:
@@ -72,7 +72,7 @@ updates:
   - package-ecosystem: "gomod"
     directory: "/cloud-run-functions/go"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     groups:
       go-dependencies:
         patterns:
@@ -82,7 +82,7 @@ updates:
   - package-ecosystem: "maven"
     directory: "/cloud-run/sidecar/java"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     groups:
       java-dependencies:
         patterns:
@@ -90,7 +90,7 @@ updates:
   - package-ecosystem: "maven"
     directory: "/cloud-run/in-container/java"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     groups:
       java-dependencies:
         patterns:
@@ -98,7 +98,7 @@ updates:
   - package-ecosystem: "maven"
     directory: "/cloud-run-functions/java"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     groups:
       java-dependencies:
         patterns:
@@ -108,7 +108,7 @@ updates:
   - package-ecosystem: "nuget"
     directory: "/cloud-run/sidecar/dotnet"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     groups:
       dotnet-dependencies:
         patterns:
@@ -116,7 +116,7 @@ updates:
   - package-ecosystem: "nuget"
     directory: "/cloud-run/in-container/dotnet"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     groups:
       dotnet-dependencies:
         patterns:
@@ -124,7 +124,7 @@ updates:
   - package-ecosystem: "nuget"
     directory: "/cloud-run-functions/dotnet"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     groups:
       dotnet-dependencies:
         patterns:
@@ -134,7 +134,7 @@ updates:
   - package-ecosystem: "bundler"
     directory: "/cloud-run/sidecar/ruby"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     groups:
       ruby-dependencies:
         patterns:
@@ -142,7 +142,7 @@ updates:
   - package-ecosystem: "bundler"
     directory: "/cloud-run/in-container/ruby"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     groups:
       ruby-dependencies:
         patterns:
@@ -150,7 +150,7 @@ updates:
   - package-ecosystem: "bundler"
     directory: "/cloud-run-functions/ruby"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     groups:
       ruby-dependencies:
         patterns:
@@ -160,7 +160,7 @@ updates:
   - package-ecosystem: "composer"
     directory: "/cloud-run/sidecar/php"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     groups:
       php-dependencies:
         patterns:
@@ -168,7 +168,7 @@ updates:
   - package-ecosystem: "composer"
     directory: "/cloud-run/in-container/php"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     groups:
       php-dependencies:
         patterns:
