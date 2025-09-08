@@ -3,8 +3,8 @@ module example.com/gcf
 go 1.24
 
 require (
-	github.com/DataDog/dd-trace-go/contrib/sirupsen/logrus/v2 v2.2.2
-	github.com/DataDog/dd-trace-go/v2 v2.2.2
+	github.com/DataDog/dd-trace-go/contrib/sirupsen/logrus/v2 v2.2.3
+	github.com/DataDog/dd-trace-go/v2 v2.2.3
 	github.com/GoogleCloudPlatform/functions-framework-go v1.9.2
 	github.com/sirupsen/logrus v1.9.3
 )
@@ -14,7 +14,7 @@ require (
 	github.com/DataDog/datadog-agent/comp/core/tagger/origindetection v0.67.0 // indirect
 	github.com/DataDog/datadog-agent/pkg/obfuscate v0.67.0 // indirect
 	github.com/DataDog/datadog-agent/pkg/proto v0.67.0 // indirect
-	github.com/DataDog/datadog-agent/pkg/remoteconfig/state v0.67.0 // indirect
+	github.com/DataDog/datadog-agent/pkg/remoteconfig/state v0.69.0 // indirect
 	github.com/DataDog/datadog-agent/pkg/trace v0.67.0 // indirect
 	github.com/DataDog/datadog-agent/pkg/util/log v0.67.0 // indirect
 	github.com/DataDog/datadog-agent/pkg/util/scrubber v0.67.0 // indirect
