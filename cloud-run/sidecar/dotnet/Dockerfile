@@ -11,6 +11,9 @@ WORKDIR /app
 COPY *.csproj ./
 RUN dotnet restore dotnet.csproj
 
+RUN curl -L -s "https://github.com/DataDog/dd-trace-dotnet/releases/download/v3.26.1/datadog-dotnet-apm_3.26.1_amd64.deb" --output datadog-dotnet-apm.deb && \
+    dpkg -i datadog-dotnet-apm.deb
+
 COPY . .
 RUN dotnet publish dotnet.csproj -c Release -o out --no-restore
 
