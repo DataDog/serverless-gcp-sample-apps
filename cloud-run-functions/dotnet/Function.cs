@@ -40,10 +40,8 @@ public class Function : IHttpFunction
 
     public async Task HandleAsync(HttpContext context)
     {
-        using (var scope = Tracer.Instance.StartActive("hello-world-function"))
-        {
-            Log.Information("Hello World!");
-            await context.Response.WriteAsync("Hello World!");
-        }
+        using var scope = Tracer.Instance.StartActive("hello-world-function");
+        Log.Information("Hello World!");
+        await context.Response.WriteAsync("Hello World!");
     }
 }
