@@ -1,5 +1,5 @@
 datadog==0.52.1
-ddtrace==3.13.0
+ddtrace==3.15.0
 Flask==3.1.2
 gunicorn==23.0.0
 structlog==25.4.0
