@@ -1,0 +1,6 @@
+<Configuration>
+  <Appenders>
+    <Console name="Console"><JsonLayout compact="true" eventEol="true" properties="true"/></Console>
+  </Appenders>
+  <Loggers><Root level="info"><AppenderRef ref="Console"/></Root></Loggers>
+</Configuration>

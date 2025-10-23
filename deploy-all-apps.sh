@@ -16,7 +16,7 @@ export PROJECT_ID="datadog-serverless-gcp-demo"
 export REGION="us-central1"
 export REPO_NAME="gcp-sample-apps"
 
-PRODUCTS=("cloud-run/in-container/" "cloud-run/sidecar/" "cloud-run-functions/")
+PRODUCTS=("cloud-run/in-container/" "cloud-run/sidecar/" "cloud-run-functions/" "cloud-run-jobs/")
 LANGUAGES=("python" "node" "go" "java" "dotnet" "ruby" "php")
 
 # Color codes
@@ -37,6 +37,7 @@ for product in "${PRODUCTS[@]}"; do
     export DD_SERVICE=$service_name
     export GCP_PROJECT_NAME=$DD_SERVICE
     export GCP_FUNCTION_NAME=$DD_SERVICE
+    export GCP_JOB_NAME=$DD_SERVICE
 
     output=$(mktemp)
     if ./build_and_deploy.sh $language > "$output" 2>&1; then

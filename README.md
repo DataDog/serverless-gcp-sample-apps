@@ -29,5 +29,11 @@ applications.
     - [Java](./cloud-run-functions/java/)
     - [.NET](./cloud-run-functions/dotnet/)
     - [Ruby](./cloud-run-functions/ruby/)
+- [Google Cloud Run Jobs (v2)](./cloud-run-jobs/)
+    - [Python](./cloud-run-jobs/python/)
+    - [Node.js](./cloud-run-jobs/node/)
+    - [Go](./cloud-run-jobs/go/)
+    - [Java](./cloud-run-jobs/java/)
+    - [.NET](./cloud-run-jobs/dotnet/)
 
 To update licenses, run the `./update-licenses.sh` script. View the comments in the README to see what dependencies need to be installed first.
