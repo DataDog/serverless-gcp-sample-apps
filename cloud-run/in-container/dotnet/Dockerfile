@@ -26,6 +26,9 @@ EXPOSE 8080
 # Copy Datadog serverless-init
 COPY --from=datadog/serverless-init:1 / /app/
 
+# Install dependencies for Datadog .NET tracer installation
+RUN apt-get update --allow-releaseinfo-change && apt-get install -y --no-install-recommends curl jq && rm -rf /var/lib/apt/lists/*
+
 # Install Datadog .NET tracer
 RUN chmod +x /app/dotnet.sh && /app/dotnet.sh
 
