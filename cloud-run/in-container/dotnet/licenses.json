@@ -1,7 +1,7 @@
 [
   {
     "PackageName": "Datadog.Trace.Bundle",
-    "PackageVersion": "3.21.0",
+    "PackageVersion": "3.26.0",
     "PackageUrl": "https://docs.datadoghq.com/tracing/trace_collection/dd_libraries",
     "Copyright": "Copyright 2017 Datadog, Inc.",
     "Authors": [
@@ -13,12 +13,12 @@
     "Repository": {
       "Type": "git",
       "Url": "https://github.com/DataDog/dd-trace-dotnet.git",
-      "Commit": "38356d79bcbf2870bb0df4790affbc573f4c6005"
+      "Commit": "85d10adff6963e4e783403d667268edfe23b2a51"
     }
   },
   {
     "PackageName": "Serilog.AspNetCore",
-    "PackageVersion": "8.0.0",
+    "PackageVersion": "9.0.0",
     "PackageUrl": "https://github.com/serilog/serilog-aspnetcore",
     "Copyright": "",
     "Authors": [
@@ -31,7 +31,7 @@
     "Repository": {
       "Type": "git",
       "Url": "https://github.com/serilog/serilog-aspnetcore",
-      "Commit": "1aa0a4b302b8e2e50b3e70475cca2a0075f06196"
+      "Commit": "bf7a68d77bd3f9be5c2d62229798be9532346a19"
     }
   }
 ]

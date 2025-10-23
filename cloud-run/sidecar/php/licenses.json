@@ -6,7 +6,7 @@
     ],
     "dependencies": {
         "brick/math": {
-            "version": "0.12.3",
+            "version": "0.14.0",
             "license": [
                 "MIT"
             ]
@@ -102,7 +102,7 @@
             ]
         },
         "laravel/framework": {
-            "version": "v11.45.2",
+            "version": "v11.46.1",
             "license": [
                 "MIT"
             ]
@@ -114,25 +114,25 @@
             ]
         },
         "laravel/pint": {
-            "version": "v1.24.0",
+            "version": "v1.25.1",
             "license": [
                 "MIT"
             ]
         },
         "laravel/prompts": {
-            "version": "v0.3.6",
+            "version": "v0.3.7",
             "license": [
                 "MIT"
             ]
         },
         "laravel/sail": {
-            "version": "v1.45.0",
+            "version": "v1.46.0",
             "license": [
                 "MIT"
             ]
         },
         "laravel/serializable-closure": {
-            "version": "v2.0.4",
+            "version": "v2.0.6",
             "license": [
                 "MIT"
             ]
@@ -156,7 +156,7 @@
             ]
         },
         "league/flysystem": {
-            "version": "3.30.0",
+            "version": "3.30.1",
             "license": [
                 "MIT"
             ]
@@ -204,7 +204,7 @@
             ]
         },
         "nesbot/carbon": {
-            "version": "3.10.2",
+            "version": "3.10.3",
             "license": [
                 "MIT"
             ]
@@ -226,7 +226,7 @@
             ]
         },
         "nikic/php-parser": {
-            "version": "v5.6.1",
+            "version": "v5.6.2",
             "license": [
                 "BSD-3-Clause"
             ]
@@ -238,7 +238,7 @@
             ]
         },
         "nunomaduro/termwind": {
-            "version": "v2.3.1",
+            "version": "v2.3.2",
             "license": [
                 "MIT"
             ]
@@ -292,7 +292,7 @@
             ]
         },
         "phpunit/phpunit": {
-            "version": "11.5.34",
+            "version": "11.5.42",
             "license": [
                 "BSD-3-Clause"
             ]
@@ -346,7 +346,7 @@
             ]
         },
         "psy/psysh": {
-            "version": "v0.12.10",
+            "version": "v0.12.13",
             "license": [
                 "MIT"
             ]
@@ -364,7 +364,7 @@
             ]
         },
         "ramsey/uuid": {
-            "version": "4.9.0",
+            "version": "4.9.1",
             "license": [
                 "MIT"
             ]
@@ -412,7 +412,7 @@
             ]
         },
         "sebastian/exporter": {
-            "version": "6.3.0",
+            "version": "6.3.2",
             "license": [
                 "BSD-3-Clause"
             ]
@@ -472,7 +472,7 @@
             ]
         },
         "symfony/console": {
-            "version": "v7.3.2",
+            "version": "v7.3.4",
             "license": [
                 "MIT"
             ]
@@ -490,13 +490,13 @@
             ]
         },
         "symfony/error-handler": {
-            "version": "v7.3.2",
+            "version": "v7.3.4",
             "license": [
                 "MIT"
             ]
         },
         "symfony/event-dispatcher": {
-            "version": "v7.3.0",
+            "version": "v7.3.3",
             "license": [
                 "MIT"
             ]
@@ -514,25 +514,25 @@
             ]
         },
         "symfony/http-foundation": {
-            "version": "v7.3.2",
+            "version": "v7.3.4",
             "license": [
                 "MIT"
             ]
         },
         "symfony/http-kernel": {
-            "version": "v7.3.2",
+            "version": "v7.3.4",
             "license": [
                 "MIT"
             ]
         },
         "symfony/mailer": {
-            "version": "v7.3.2",
+            "version": "v7.3.4",
             "license": [
                 "MIT"
             ]
         },
         "symfony/mime": {
-            "version": "v7.3.2",
+            "version": "v7.3.4",
             "license": [
                 "MIT"
             ]
@@ -586,13 +586,13 @@
             ]
         },
         "symfony/process": {
-            "version": "v7.3.0",
+            "version": "v7.3.4",
             "license": [
                 "MIT"
             ]
         },
         "symfony/routing": {
-            "version": "v7.3.2",
+            "version": "v7.3.4",
             "license": [
                 "MIT"
             ]
@@ -604,13 +604,13 @@
             ]
         },
         "symfony/string": {
-            "version": "v7.3.2",
+            "version": "v7.3.4",
             "license": [
                 "MIT"
             ]
         },
         "symfony/translation": {
-            "version": "v7.3.2",
+            "version": "v7.3.4",
             "license": [
                 "MIT"
             ]
@@ -628,13 +628,13 @@
             ]
         },
         "symfony/var-dumper": {
-            "version": "v7.3.2",
+            "version": "v7.3.4",
             "license": [
                 "MIT"
             ]
         },
         "symfony/yaml": {
-            "version": "v7.3.2",
+            "version": "v7.3.3",
             "license": [
                 "MIT"
             ]
@@ -664,7 +664,7 @@
             ]
         },
         "webmozart/assert": {
-            "version": "1.11.0",
+            "version": "1.12.0",
             "license": [
                 "MIT"
             ]

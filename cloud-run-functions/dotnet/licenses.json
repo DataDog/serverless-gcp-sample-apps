@@ -1,7 +1,7 @@
 [
   {
     "PackageName": "Datadog.Trace.Bundle",
-    "PackageVersion": "3.19.0",
+    "PackageVersion": "3.26.3",
     "PackageUrl": "https://docs.datadoghq.com/tracing/trace_collection/dd_libraries",
     "Copyright": "Copyright 2017 Datadog, Inc.",
     "Authors": [
@@ -13,29 +13,29 @@
     "Repository": {
       "Type": "git",
       "Url": "https://github.com/DataDog/dd-trace-dotnet.git",
-      "Commit": "ebf355011f8a40d1a44ac649eb6d049e392c9d7a"
+      "Commit": "7b9e362fab865c098e2cbab6ee90aba9a0c94523"
     }
   },
   {
     "PackageName": "Google.Cloud.Functions.Hosting",
-    "PackageVersion": "2.0.0",
+    "PackageVersion": "3.0.1",
     "PackageUrl": "https://github.com/GoogleCloudPlatform/functions-framework-dotnet",
     "Copyright": "Copyright 2020 Google LLC",
     "Authors": [
       "Google LLC"
     ],
     "Description": "The Google Cloud Functions Framework Hosting package makes it easy to run a web server to execute functions.",
-    "LicenseUrl": "https://www.nuget.org/packages/Google.Cloud.Functions.Hosting/2.0.0/License",
-    "LicenseType": "LICENSE",
+    "LicenseUrl": "https://licenses.nuget.org/Apache-2.0",
+    "LicenseType": "Apache-2.0",
     "Repository": {
       "Type": "git",
       "Url": "https://github.com/GoogleCloudPlatform/functions-framework-dotnet",
-      "Commit": "ba600bebc239db143588804a4dad19054036853b"
+      "Commit": "41e9c66b50d21ab5305c5355cd490c477e8356b7"
     }
   },
   {
     "PackageName": "Serilog",
-    "PackageVersion": "4.2.0",
+    "PackageVersion": "4.3.0",
     "PackageUrl": "https://serilog.net/",
     "Copyright": "Copyright © Serilog Contributors",
     "Authors": [
@@ -47,7 +47,7 @@
     "Repository": {
       "Type": "git",
       "Url": "https://github.com/serilog/serilog",
-      "Commit": "c00e17fdeb615d36c062569f7342f72c9ece4aa7"
+      "Commit": "726e29c5b172aa8813285be1ad8cc728fd531eab"
     }
   },
   {
@@ -86,7 +86,7 @@
   },
   {
     "PackageName": "Serilog.Sinks.File",
-    "PackageVersion": "6.0.0",
+    "PackageVersion": "7.0.0",
     "PackageUrl": "https://github.com/serilog/serilog-sinks-file",
     "Copyright": "",
     "Authors": [
@@ -98,7 +98,7 @@
     "Repository": {
       "Type": "git",
       "Url": "https://github.com/serilog/serilog-sinks-file",
-      "Commit": "c7b9bc3d87f9bb98572a52286135efda1e608ad6"
+      "Commit": "23c732a8658a0df2a5434fe69b0011800b14f0da"
     }
   }
 ]
