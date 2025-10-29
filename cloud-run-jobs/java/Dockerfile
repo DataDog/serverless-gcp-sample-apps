@@ -21,9 +21,6 @@ RUN ./mvnw dependency:go-offline
 COPY src src/
 RUN ./mvnw package -DskipTests
 
-ENV PORT=8080
-EXPOSE 8080
-
 # Download agent and tracer
 COPY --from=datadog/serverless-init:1 /datadog-init /app/datadog-init
 ADD 'https://dtdg.co/latest-java-tracer' agent.jar

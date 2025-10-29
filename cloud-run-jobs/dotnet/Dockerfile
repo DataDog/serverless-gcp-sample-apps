@@ -20,9 +20,6 @@ WORKDIR /app
 # Copy the built application
 COPY --from=build /app/out .
 
-ENV PORT=8080
-EXPOSE 8080
-
 # Copy Datadog serverless-init
 COPY --from=datadog/serverless-init:1 / /app/
 

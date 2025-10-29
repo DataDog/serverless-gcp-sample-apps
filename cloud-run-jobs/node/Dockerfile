@@ -17,9 +17,6 @@ RUN npm install
 
 COPY . .
 
-ENV PORT=8080
-EXPOSE 8080
-
 COPY --from=datadog/serverless-init:1 /datadog-init /app/datadog-init
 ENV NODE_OPTIONS="--require dd-trace/init"
 
