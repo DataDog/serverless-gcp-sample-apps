@@ -14,20 +14,14 @@ RUN dotnet restore dotnet.csproj
 COPY . .
 RUN dotnet publish dotnet.csproj -c Release -o out --no-restore
 
-FROM mcr.microsoft.com/dotnet/aspnet:8.0
+FROM mcr.microsoft.com/dotnet/runtime:8.0
 WORKDIR /app
 
 # Copy the built application
 COPY --from=build /app/out .
 
-ENV PORT=8080
-EXPOSE 8080
-
 # Copy Datadog serverless-init
 COPY --from=datadog/serverless-init:1 / /app/
-
-# Install dependencies for Datadog .NET tracer installation
-RUN apt-get update --allow-releaseinfo-change && apt-get install -y --no-install-recommends curl jq && rm -rf /var/lib/apt/lists/*
 
 # Install Datadog .NET tracer
 RUN chmod +x /app/dotnet.sh && /app/dotnet.sh

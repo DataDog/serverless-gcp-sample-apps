@@ -48,6 +48,7 @@ APP_DIRS=(
   "cloud-run/in-container/"
   "cloud-run/sidecar/"
   "cloud-run-functions/"
+  "cloud-run-jobs/"
 )
 
 if [ -z "${GITHUB_TOKEN:-}" ]; then

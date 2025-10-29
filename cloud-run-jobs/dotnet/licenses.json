@@ -1,0 +1,53 @@
+[
+  {
+    "PackageName": "Datadog.Trace.Bundle",
+    "PackageVersion": "3.26.0",
+    "PackageUrl": "https://docs.datadoghq.com/tracing/trace_collection/dd_libraries",
+    "Copyright": "Copyright 2017 Datadog, Inc.",
+    "Authors": [
+      "Datadog"
+    ],
+    "Description": "Auto-instrumentation assets for Datadog APM",
+    "LicenseUrl": "https://licenses.nuget.org/Apache-2.0",
+    "LicenseType": "Apache-2.0",
+    "Repository": {
+      "Type": "git",
+      "Url": "https://github.com/DataDog/dd-trace-dotnet.git",
+      "Commit": "85d10adff6963e4e783403d667268edfe23b2a51"
+    }
+  },
+  {
+    "PackageName": "Serilog",
+    "PackageVersion": "4.2.0",
+    "PackageUrl": "https://serilog.net/",
+    "Copyright": "Copyright © Serilog Contributors",
+    "Authors": [
+      "Serilog Contributors"
+    ],
+    "Description": "Simple .NET logging with fully-structured events",
+    "LicenseUrl": "https://licenses.nuget.org/Apache-2.0",
+    "LicenseType": "Apache-2.0",
+    "Repository": {
+      "Type": "git",
+      "Url": "https://github.com/serilog/serilog",
+      "Commit": "c00e17fdeb615d36c062569f7342f72c9ece4aa7"
+    }
+  },
+  {
+    "PackageName": "Serilog.Sinks.Console",
+    "PackageVersion": "6.0.0",
+    "PackageUrl": "https://github.com/serilog/serilog-sinks-console",
+    "Copyright": "",
+    "Authors": [
+      "Serilog Contributors"
+    ],
+    "Description": "A Serilog sink that writes log events to the console/terminal.",
+    "LicenseUrl": "https://licenses.nuget.org/Apache-2.0",
+    "LicenseType": "Apache-2.0",
+    "Repository": {
+      "Type": "git",
+      "Url": "https://github.com/serilog/serilog-sinks-console",
+      "Commit": "4c9a7b6946dfd2d7f07a792c40bb3d46af835ee9"
+    }
+  }
+]
