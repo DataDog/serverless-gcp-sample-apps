@@ -2,7 +2,7 @@
   "main": "index.js",
   "dependencies": {
     "@google-cloud/functions-framework": "^4.0.0",
-    "dd-trace": "^5.67.0",
+    "dd-trace": "^5.75.0",
     "winston": "^3.18.3"
   }
 }
