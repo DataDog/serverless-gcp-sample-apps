@@ -60,4 +60,4 @@ gcloud run deploy $GCP_PROJECT_NAME \
   --project=$PROJECT_ID
 
 echo -e "\n====== Instrumenting with datadog-ci ======"
-datadog-ci cloud-run instrument --project=$PROJECT_ID --region=$REGION --service=$GCP_PROJECT_NAME
+datadog-ci cloud-run instrument --project=$PROJECT_ID --region=$REGION --service=$GCP_PROJECT_NAME --sidecar-image=datadog/serverless-init:1
