@@ -1,8 +1,8 @@
 {
   "main": "main.js",
   "dependencies": {
-    "dd-trace": "^5.67.0",
-    "express": "^5.1.0",
-    "winston": "^3.18.3"
+    "dd-trace": "^5.80.0",
+    "express": "^5.2.1",
+    "winston": "^3.19.0"
   }
 }
