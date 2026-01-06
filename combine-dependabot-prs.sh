@@ -196,13 +196,34 @@ if PR_OUTPUT=$(gh pr create \
     echo -e "${GREEN}✅ Pull request created${RESET}"
     echo ""
     echo -e "${GREEN}${PR_OUTPUT}${RESET}"
+    COMBINED_PR_URL="$PR_OUTPUT"
 else
     echo -e "${RED}❌ Failed to create PR${RESET}"
     echo "$PR_OUTPUT"
     exit 1
 fi
-
 echo ""
+
+# Close original Dependabot PRs
+echo -e "${YELLOW}Closing original Dependabot PRs...${RESET}"
+CLOSE_COMMENT="This PR has been combined into ${COMBINED_PR_URL} and will be merged there.
+
+🤖 Automatically closed by combine-dependabot-prs.sh"
+
+for pr_data in "${SUCCESSFUL_PRS[@]}"; do
+    IFS='|' read -r PR_NUM PR_TITLE PR_URL <<< "$pr_data"
+
+    echo -e "${BLUE}  Closing PR #${PR_NUM}...${RESET}"
+
+    if gh pr close "${PR_NUM}" --comment "${CLOSE_COMMENT}" 2>&1; then
+        echo -e "${GREEN}    ✅ Closed${RESET}"
+    else
+        echo -e "${YELLOW}    ⚠️  Failed to close (may require manual intervention)${RESET}"
+    fi
+done
+echo -e "${GREEN}✅ Original PRs closed${RESET}"
+echo ""
+
 echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${RESET}"
 echo -e "${GREEN}🎉 Success!${RESET}"
 echo ""
