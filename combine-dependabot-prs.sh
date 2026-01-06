@@ -84,6 +84,15 @@ fi
 echo -e "${GREEN}✅ Found ${#PR_LINES[@]} mergeable Dependabot PR(s)${RESET}"
 echo ""
 
+# Fetch latest from remote to ensure we have all Dependabot branches
+echo -e "${YELLOW}Fetching latest from remote...${RESET}"
+if ! git fetch origin 2>&1; then
+    echo -e "${RED}❌ Failed to fetch from remote${RESET}"
+    exit 1
+fi
+echo -e "${GREEN}✅ Remote refs updated${RESET}"
+echo ""
+
 # Arrays to track results
 declare -a SUCCESSFUL_PRS
 declare -a FAILED_PRS
