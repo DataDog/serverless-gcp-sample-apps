@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="Google.Cloud.Functions.Hosting" Version="3.0.1" />
-    <PackageReference Include="Datadog.Trace.Bundle" Version="3.34.0" />
+    <PackageReference Include="Datadog.Trace.Bundle" Version="3.36.0" />
     <PackageReference Include="Serilog" Version="4.3.0" />
     <PackageReference Include="Serilog.Formatting.Compact" Version="3.0.0" />
     <PackageReference Include="Serilog.Sinks.Console" Version="6.1.1" />
