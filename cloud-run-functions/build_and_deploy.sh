@@ -25,7 +25,12 @@ echo "Deploying $LANGUAGE Cloud Run Function from $PROJECT_PATH"
 PROJECT_ID=${PROJECT_ID:?required but not set}
 GCP_FUNCTION_NAME=${GCP_FUNCTION_NAME:?required but not set}
 DD_SERVICE=${DD_SERVICE:?required but not set}
+REPO_NAME=${REPO_NAME:-cloud-run-source-deploy}
 REGION=${REGION:-us-central1}
+
+# Optional: Custom agent image configuration
+AGENT_IMAGE_NAME=${AGENT_IMAGE_NAME:-""}
+AGENT_DIR="$SCRIPT_DIR/../agent"
 
 # Set entry point based on language
 case $LANGUAGE in
@@ -61,8 +66,34 @@ esac
 
 # Deploy
 echo -e "\n====== Initializing ======"
-cd "$PROJECT_PATH"
 gcloud config set project ${PROJECT_ID}
+
+# Build custom agent image if AGENT_IMAGE_NAME is set
+if [ -n "$AGENT_IMAGE_NAME" ]; then
+    echo -e "\n====== Building custom agent image ======"
+    if [ ! -d "$AGENT_DIR" ]; then
+        echo "Error: Agent directory not found at $AGENT_DIR"
+        exit 1
+    fi
+    if [ ! -f "$AGENT_DIR/datadog-agent" ]; then
+        echo "Error: datadog-agent binary not found at $AGENT_DIR/datadog-agent"
+        echo "Please place your dev build of datadog-agent in the agent/ directory"
+        exit 1
+    fi
+
+    gcloud auth configure-docker ${REGION}-docker.pkg.dev --quiet
+
+    cd "$AGENT_DIR"
+    AGENT_IMAGE_FULL="${REGION}-docker.pkg.dev/${PROJECT_ID}/${REPO_NAME}/${AGENT_IMAGE_NAME}:latest"
+    echo "Building agent image: $AGENT_IMAGE_FULL"
+    docker build --quiet --platform linux/amd64 -t ${AGENT_IMAGE_FULL} .
+    docker push ${AGENT_IMAGE_FULL}
+    SIDECAR_IMAGE="$AGENT_IMAGE_FULL"
+else
+    SIDECAR_IMAGE="datadog/serverless-init:1"
+fi
+
+cd "$PROJECT_PATH"
 
 echo -e "\n====== Deploying Cloud Run Function (Gen 2) ======"
 
@@ -83,7 +114,8 @@ gcloud run deploy $GCP_FUNCTION_NAME \
   --memory=512Mi \
   --timeout=60s \
   $ENV_VARS_ARGS \
-  --project=$PROJECT_ID
+  --project=$PROJECT_ID \
 
 echo -e "\n====== Instrumenting with datadog-ci ======"
-datadog-ci cloud-run instrument --project=$PROJECT_ID --region=$REGION --service=$GCP_FUNCTION_NAME
+echo "Using sidecar image: $SIDECAR_IMAGE"
+datadog-ci cloud-run instrument --project=$PROJECT_ID --region=$REGION --service=$GCP_FUNCTION_NAME --sidecar-image=$SIDECAR_IMAGE

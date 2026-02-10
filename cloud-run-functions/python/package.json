@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "@datadog/datadog-ci-base": "^4.4.0",
+    "@datadog/datadog-ci-plugin-cloud-run": "^4.4.0"
+  }
+}
