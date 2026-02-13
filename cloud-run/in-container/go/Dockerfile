@@ -5,7 +5,7 @@
 # Datadog (https://www.datadoghq.com/)
 # Copyright 2025-present Datadog, Inc.
 
-FROM golang:1.24-bookworm
+FROM golang:1.25-bookworm
 
 WORKDIR /app
 
