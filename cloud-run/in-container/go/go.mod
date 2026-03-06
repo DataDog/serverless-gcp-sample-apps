@@ -2,6 +2,8 @@ module golang-test-app
 
 go 1.24.0
 
+toolchain go1.26.0
+
 require (
 	github.com/DataDog/dd-trace-go/contrib/net/http/v2 v2.5.0
 	github.com/DataDog/dd-trace-go/contrib/sirupsen/logrus/v2 v2.5.0
