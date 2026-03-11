@@ -1,2 +1,2 @@
 datadog==0.52.1
-ddtrace==4.3.1
+ddtrace==4.5.0

@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>4.0.2</version>
+		<version>4.0.3</version>
 		<relativePath/>
 	</parent>
 	<groupId>com.example</groupId>
@@ -33,7 +33,7 @@
 		<dependency>
 			<groupId>com.datadoghq</groupId>
 			<artifactId>dd-trace-api</artifactId>
-			<version>1.58.2</version>
+			<version>1.59.0</version>
 		</dependency>
 	</dependencies>
 
