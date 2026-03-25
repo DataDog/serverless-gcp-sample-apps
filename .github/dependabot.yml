@@ -1,0 +1,202 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: /cloud-run/sidecar/node
+  schedule:
+    interval: monthly
+  groups:
+    npm-dependencies:
+      patterns:
+      - '*'
+  cooldown:
+    default-days: 14
+- package-ecosystem: npm
+  directory: /cloud-run/in-container/node
+  schedule:
+    interval: monthly
+  groups:
+    npm-dependencies:
+      patterns:
+      - '*'
+  cooldown:
+    default-days: 14
+- package-ecosystem: npm
+  directory: /cloud-run-functions/node
+  schedule:
+    interval: monthly
+  groups:
+    npm-dependencies:
+      patterns:
+      - '*'
+  cooldown:
+    default-days: 14
+- package-ecosystem: pip
+  directory: /cloud-run/sidecar/python
+  schedule:
+    interval: monthly
+  groups:
+    python-dependencies:
+      patterns:
+      - '*'
+  cooldown:
+    default-days: 14
+- package-ecosystem: pip
+  directory: /cloud-run/in-container/python
+  schedule:
+    interval: monthly
+  groups:
+    python-dependencies:
+      patterns:
+      - '*'
+  cooldown:
+    default-days: 14
+- package-ecosystem: pip
+  directory: /cloud-run-functions/python
+  schedule:
+    interval: monthly
+  groups:
+    python-dependencies:
+      patterns:
+      - '*'
+  cooldown:
+    default-days: 14
+- package-ecosystem: gomod
+  directory: /cloud-run/sidecar/go
+  schedule:
+    interval: monthly
+  groups:
+    go-dependencies:
+      patterns:
+      - '*'
+  cooldown:
+    default-days: 14
+- package-ecosystem: gomod
+  directory: /cloud-run/in-container/go
+  schedule:
+    interval: monthly
+  groups:
+    go-dependencies:
+      patterns:
+      - '*'
+  cooldown:
+    default-days: 14
+- package-ecosystem: gomod
+  directory: /cloud-run-functions/go
+  schedule:
+    interval: monthly
+  groups:
+    go-dependencies:
+      patterns:
+      - '*'
+  cooldown:
+    default-days: 14
+- package-ecosystem: maven
+  directory: /cloud-run/sidecar/java
+  schedule:
+    interval: monthly
+  groups:
+    java-dependencies:
+      patterns:
+      - '*'
+  cooldown:
+    default-days: 14
+- package-ecosystem: maven
+  directory: /cloud-run/in-container/java
+  schedule:
+    interval: monthly
+  groups:
+    java-dependencies:
+      patterns:
+      - '*'
+  cooldown:
+    default-days: 14
+- package-ecosystem: maven
+  directory: /cloud-run-functions/java
+  schedule:
+    interval: monthly
+  groups:
+    java-dependencies:
+      patterns:
+      - '*'
+  cooldown:
+    default-days: 14
+- package-ecosystem: nuget
+  directory: /cloud-run/sidecar/dotnet
+  schedule:
+    interval: monthly
+  groups:
+    dotnet-dependencies:
+      patterns:
+      - '*'
+  cooldown:
+    default-days: 14
+- package-ecosystem: nuget
+  directory: /cloud-run/in-container/dotnet
+  schedule:
+    interval: monthly
+  groups:
+    dotnet-dependencies:
+      patterns:
+      - '*'
+  cooldown:
+    default-days: 14
+- package-ecosystem: nuget
+  directory: /cloud-run-functions/dotnet
+  schedule:
+    interval: monthly
+  groups:
+    dotnet-dependencies:
+      patterns:
+      - '*'
+  cooldown:
+    default-days: 14
+- package-ecosystem: bundler
+  directory: /cloud-run/sidecar/ruby
+  schedule:
+    interval: monthly
+  groups:
+    ruby-dependencies:
+      patterns:
+      - '*'
+  cooldown:
+    default-days: 14
+- package-ecosystem: bundler
+  directory: /cloud-run/in-container/ruby
+  schedule:
+    interval: monthly
+  groups:
+    ruby-dependencies:
+      patterns:
+      - '*'
+  cooldown:
+    default-days: 14
+- package-ecosystem: bundler
+  directory: /cloud-run-functions/ruby
+  schedule:
+    interval: monthly
+  groups:
+    ruby-dependencies:
+      patterns:
+      - '*'
+  cooldown:
+    default-days: 14
+- package-ecosystem: composer
+  directory: /cloud-run/sidecar/php
+  schedule:
+    interval: monthly
+  groups:
+    php-dependencies:
+      patterns:
+      - '*'
+  cooldown:
+    default-days: 14
+- package-ecosystem: composer
+  directory: /cloud-run/in-container/php
+  schedule:
+    interval: monthly
+  groups:
+    php-dependencies:
+      patterns:
+      - '*'
+  cooldown:
+    default-days: 14
