@@ -7,7 +7,7 @@ set -e
 
 if [ $# -ne 1 ]; then
     echo "Usage: $0 <language>"
-    echo "Available languages: go, python, node, java, dotnet"
+    echo "Available languages: go, python, node, java, dotnet, php, ruby"
     exit 1
 fi
 
