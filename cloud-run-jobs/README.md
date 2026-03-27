@@ -10,6 +10,8 @@ services with Datadog Serverless-Init.
 - [Go](./go/)
 - [Java](./java/)
 - [.NET](./dotnet/)
+- [PHP](./php/)
+- [Ruby](./ruby/)
 
 ## Quick Deploy
 

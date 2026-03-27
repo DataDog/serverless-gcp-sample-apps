@@ -156,7 +156,57 @@ updates:
         patterns:
           - "*"
 
-  # PHP - Cloud Run only (not supported in Functions)
+  # Cloud Run Jobs
+  - package-ecosystem: "npm"
+    directory: "/cloud-run-jobs/node"
+    schedule:
+      interval: "monthly"
+    groups:
+      npm-dependencies:
+        patterns:
+          - "*"
+  - package-ecosystem: "pip"
+    directory: "/cloud-run-jobs/python"
+    schedule:
+      interval: "monthly"
+    groups:
+      python-dependencies:
+        patterns:
+          - "*"
+  - package-ecosystem: "gomod"
+    directory: "/cloud-run-jobs/go"
+    schedule:
+      interval: "monthly"
+    groups:
+      go-dependencies:
+        patterns:
+          - "*"
+  - package-ecosystem: "maven"
+    directory: "/cloud-run-jobs/java"
+    schedule:
+      interval: "monthly"
+    groups:
+      java-dependencies:
+        patterns:
+          - "*"
+  - package-ecosystem: "nuget"
+    directory: "/cloud-run-jobs/dotnet"
+    schedule:
+      interval: "monthly"
+    groups:
+      dotnet-dependencies:
+        patterns:
+          - "*"
+  - package-ecosystem: "bundler"
+    directory: "/cloud-run-jobs/ruby"
+    schedule:
+      interval: "monthly"
+    groups:
+      ruby-dependencies:
+        patterns:
+          - "*"
+
+  # PHP - Cloud Run only (not supported in Functions, no composer deps in jobs)
   - package-ecosystem: "composer"
     directory: "/cloud-run/sidecar/php"
     schedule:
