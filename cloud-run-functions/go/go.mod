@@ -2,6 +2,8 @@ module example.com/gcf
 
 go 1.24.0
 
+toolchain go1.26.1
+
 require (
 	github.com/DataDog/dd-trace-go/contrib/sirupsen/logrus/v2 v2.6.0
 	github.com/DataDog/dd-trace-go/v2 v2.6.0
