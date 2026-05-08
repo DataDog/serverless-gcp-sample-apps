@@ -1,3 +1,5 @@
 datadog-serverless-compat
+datadog
 ddtrace
 flask
+requests

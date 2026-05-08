@@ -9,18 +9,27 @@ import logging
 import sys
 import os
 import subprocess
+from datetime import datetime
 from typing import Any
 
+import requests
+from datadog import initialize, statsd
 from datadog_serverless_compat import start
 from ddtrace import tracer, patch_all
 from flask import Request
 
-# Initialize Datadog serverless compatibility layer for Gen 1 functions
-start()
 patch_all()
 
-# Gen 1 functions use stdout logging which is collected by Cloud Logging
-# The Datadog Forwarder then forwards these logs to Datadog
+if os.getenv("COMPAT_LAYER", "false").lower() == "true":
+    start()
+    options = {
+        "statsd_host": "127.0.0.1",
+        "statsd_port": 8125,
+        "statsd_namespace": "custom.kh.gcp.cloud_run_functions",
+        "statsd_constant_tags": os.getenv("DD_TAGS", "").split(","),
+    }
+    initialize(**options)
+
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s %(levelname)s [%(name)s] [%(filename)s:%(lineno)d] - %(message)s',
@@ -253,21 +262,41 @@ def calculate_cpu_metrics():
 
 @tracer.wrap()
 def main(request: Request) -> Any:
-    # For Gen 1 functions, logs are sent to Cloud Logging
-    # and collected by the Datadog Forwarder
     logger.info("Hello world!")
 
+    # Check GCP-provided env vars
+    print(f"FUNCTION_NAME={os.environ.get('FUNCTION_NAME', 'NOT SET')}")
+    print(f"GCP_PROJECT={os.environ.get('GCP_PROJECT', 'NOT SET')}")
+    print(f"FUNCTION_TARGET={os.environ.get('FUNCTION_TARGET', 'NOT SET')}")
+    print(f"K_SERVICE={os.environ.get('K_SERVICE', 'NOT SET')}")
+
+    # Outbound request to generate a trace
+    try:
+        requests.get("https://dummyjson.com/http/200", timeout=5)
+    except requests.exceptions.RequestException as e:
+        print(f"Request failed: {e}")
+
+    # Custom metrics via DogStatsD (only available in compat layer mode)
+    if os.getenv("COMPAT_LAYER", "false").lower() == "true":
+        statsd.increment("count")
+        statsd.gauge("gauge", 1)
+        statsd.distribution("distribution", 1)
+
+        current_timestamp = int(datetime.now().timestamp())
+        statsd.count_with_timestamp("count.timestamp", 1, timestamp=current_timestamp)
+        statsd.gauge_with_timestamp("gauge.timestamp", 1, timestamp=current_timestamp)
+
     # Check cgroup version first
-    fs_type, version = check_cgroup_version()
+    # fs_type, version = check_cgroup_version()
 
-    # List cgroup directory contents
-    list_cgroup_contents()
+    # # List cgroup directory contents
+    # list_cgroup_contents()
 
-    # Explore proc and cgroup files
-    read_proc_files()
-    read_cgroup_files()
+    # # Explore proc and cgroup files
+    # read_proc_files()
+    # read_cgroup_files()
 
-    # Calculate CPU metrics
-    calculate_cpu_metrics()
+    # # Calculate CPU metrics
+    # calculate_cpu_metrics()
 
-    return f'Hello World! Cgroup: {version}. Check logs for full details.', 200
+    return f'Hello World!', 200

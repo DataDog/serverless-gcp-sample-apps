@@ -46,7 +46,7 @@ case $LANGUAGE in
         ;;
     java)
         ENTRY_POINT="com.example.App"
-        RUNTIME="java21"
+        RUNTIME="java17"
         TRIGGER="--trigger-http"
         ;;
     dotnet)
@@ -73,14 +73,35 @@ cd "$PROJECT_PATH"
 
 echo -e "\n====== Deploying Cloud Function (Gen 1) ======"
 
-# Check for env file
-ENV_VARS_FILE="$PROJECT_PATH/env.yaml"
-ENV_VARS_ARGS=""
+# Generate env.yaml with substituted values (gcloud does not expand shell vars in yaml files)
+DD_API_KEY=${DD_API_KEY:?required but not set}
+DD_SITE=${DD_SITE:?required but not set}
+GENERATED_ENV_YAML="$PROJECT_PATH/.env.gen1.yaml"
 
-if [ -f "$ENV_VARS_FILE" ]; then
-    echo "Found environment file: $ENV_VARS_FILE"
-    ENV_VARS_ARGS="--env-vars-file=$ENV_VARS_FILE"
-fi
+cat > "$GENERATED_ENV_YAML" <<EOF
+DD_API_KEY: "${DD_API_KEY}"
+DD_SITE: "${DD_SITE}"
+DD_SERVICE: "${DD_SERVICE}"
+EOF
+[ -n "$DD_ENV" ]               && echo "DD_ENV: \"${DD_ENV}\""               >> "$GENERATED_ENV_YAML"
+[ -n "$DD_VERSION" ]           && echo "DD_VERSION: \"${DD_VERSION}\""       >> "$GENERATED_ENV_YAML"
+[ -n "$DD_TAGS" ]              && echo "DD_TAGS: \"${DD_TAGS}\""             >> "$GENERATED_ENV_YAML"
+[ -n "$DD_PROFILING_ENABLED" ] && echo "DD_PROFILING_ENABLED: \"${DD_PROFILING_ENABLED}\"" >> "$GENERATED_ENV_YAML"
+[ -n "$DD_LOG_LEVEL" ]         && echo "DD_LOG_LEVEL: \"${DD_LOG_LEVEL}\""   >> "$GENERATED_ENV_YAML"
+[ -n "$DD_TRACE_DEBUG" ]       && echo "DD_TRACE_DEBUG: \"${DD_TRACE_DEBUG}\"" >> "$GENERATED_ENV_YAML"
+
+# Language-specific env vars
+case $LANGUAGE in
+    python)
+        echo 'PYTHONUNBUFFERED: "1"' >> "$GENERATED_ENV_YAML"
+        ;;
+    java)
+        echo 'JAVA_TOOL_OPTIONS: "-javaagent:dd-serverless-compat-java-agent.jar"' >> "$GENERATED_ENV_YAML"
+        echo 'DD_SERVERLESS_LOG_PATH: "/tmp/*.log"' >> "$GENERATED_ENV_YAML"
+        ;;
+esac
+
+ENV_VARS_ARGS="--env-vars-file=$GENERATED_ENV_YAML"
 
 gcloud functions deploy $GCP_FUNCTION_NAME \
   --no-gen2 \
@@ -98,8 +119,11 @@ gcloud functions deploy $GCP_FUNCTION_NAME \
 echo -e "\n====== Adding service label for trace correlation ======"
 # Add service label to correlate traces with metrics
 gcloud functions deploy $GCP_FUNCTION_NAME \
+  --no-gen2 \
+  --runtime=$RUNTIME \
   --region=$REGION \
   --update-labels=service=$DD_SERVICE \
+  --allow-unauthenticated \
   --project=$PROJECT_ID
 
 echo -e "\n====== Deployment Complete ======"

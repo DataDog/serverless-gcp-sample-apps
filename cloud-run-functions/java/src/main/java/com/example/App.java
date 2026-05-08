@@ -36,7 +36,13 @@ public class App implements HttpFunction {
     public void service(HttpRequest request, HttpResponse response)
             throws IOException {
         logger.info("Hello World!");
-        
+
+        // Check GCP-provided env vars
+        for (String var : new String[]{"FUNCTION_NAME", "GCP_PROJECT", "FUNCTION_TARGET", "K_SERVICE"}) {
+            String value = System.getenv(var);
+            System.out.println(var + "=" + (value != null ? value : "NOT SET"));
+        }
+
         BufferedWriter writer = response.getWriter();
         writer.write("Hello World!");
     }

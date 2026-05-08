@@ -14,3 +14,5 @@
 .gitignore
 
 node_modules
+.env.gen1.yaml
+.env.gen2.yaml

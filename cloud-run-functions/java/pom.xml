@@ -8,8 +8,8 @@
     <name>java-cloud-function</name>
     
     <properties>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     
@@ -62,6 +62,29 @@
 					<fileTemplate>/org/codehaus/mojo/license/third-party-file-groupByMultiLicense.ftl</fileTemplate>
 				</configuration>
 			</plugin>
+                <plugin>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>3.4.0</version>
+                    <executions>
+                        <execution>
+                        <id>copy-compat-jar</id>
+                        <phase>package</phase>
+                        <goals><goal>copy-resources</goal></goals>
+                        <configuration>
+                            <overwrite>true</overwrite>
+                            <outputDirectory>${project.build.directory}</outputDirectory>
+                            <resources>
+                            <resource>
+                                <directory>${project.basedir}</directory>
+                                <includes>
+                                <include>dd-serverless-compat-java-agent.jar</include>
+                                </includes>
+                            </resource>
+                            </resources>
+                        </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
         </plugins>
     </build>
 </project>

@@ -28,6 +28,9 @@ DD_SERVICE=${DD_SERVICE:?required but not set}
 REPO_NAME=${REPO_NAME:-cloud-run-source-deploy}
 REGION=${REGION:-us-central1}
 
+# Set COMPAT_LAYER=true to deploy with datadog-serverless-compat library instead of serverless-init sidecar
+COMPAT_LAYER=${COMPAT_LAYER:-false}
+
 # Optional: Custom agent image configuration
 AGENT_IMAGE_NAME=${AGENT_IMAGE_NAME:-""}
 AGENT_DIR="$SCRIPT_DIR/../agent"
@@ -97,13 +100,40 @@ cd "$PROJECT_PATH"
 
 echo -e "\n====== Deploying Cloud Run Function (Gen 2) ======"
 
-# Check for env file
-ENV_VARS_FILE="$PROJECT_PATH/env.yaml"
 ENV_VARS_ARGS=""
 
-if [ -f "$ENV_VARS_FILE" ]; then
-    echo "Found environment file: $ENV_VARS_FILE"
-    ENV_VARS_ARGS="--env-vars-file=$ENV_VARS_FILE"
+if [ "$COMPAT_LAYER" = "true" ]; then
+    # Compat layer mode: inject DD vars directly into the function container
+    DD_API_KEY=${DD_API_KEY:?required but not set when COMPAT_LAYER=true}
+    DD_SITE=${DD_SITE:?required but not set when COMPAT_LAYER=true}
+    GENERATED_ENV_YAML="$PROJECT_PATH/.env.gen2.yaml"
+    cat > "$GENERATED_ENV_YAML" <<EOF
+DD_API_KEY: "${DD_API_KEY}"
+DD_SITE: "${DD_SITE}"
+DD_SERVICE: "${DD_SERVICE}"
+EOF
+    [ -n "$DD_ENV" ]               && echo "DD_ENV: \"${DD_ENV}\""               >> "$GENERATED_ENV_YAML"
+    [ -n "$DD_VERSION" ]           && echo "DD_VERSION: \"${DD_VERSION}\""       >> "$GENERATED_ENV_YAML"
+    [ -n "$DD_TAGS" ]              && echo "DD_TAGS: \"${DD_TAGS}\""             >> "$GENERATED_ENV_YAML"
+    [ -n "$DD_PROFILING_ENABLED" ] && echo "DD_PROFILING_ENABLED: \"${DD_PROFILING_ENABLED}\"" >> "$GENERATED_ENV_YAML"
+    [ -n "$DD_LOG_LEVEL" ]         && echo "DD_LOG_LEVEL: \"${DD_LOG_LEVEL}\""   >> "$GENERATED_ENV_YAML"
+    [ -n "$DD_TRACE_DEBUG" ]       && echo "DD_TRACE_DEBUG: \"${DD_TRACE_DEBUG}\"" >> "$GENERATED_ENV_YAML"
+    case $LANGUAGE in
+        python)
+            echo 'PYTHONUNBUFFERED: "1"' >> "$GENERATED_ENV_YAML"
+            ;;
+        java)
+            echo 'JAVA_TOOL_OPTIONS: "-javaagent:dd-serverless-compat-java-agent.jar"' >> "$GENERATED_ENV_YAML"
+            ;;
+    esac
+    ENV_VARS_ARGS="--env-vars-file=$GENERATED_ENV_YAML"
+else
+    # Sidecar mode: DD vars are injected by datadog-ci cloud-run instrument
+    ENV_VARS_FILE="$PROJECT_PATH/env.yaml"
+    if [ -f "$ENV_VARS_FILE" ]; then
+        echo "Found environment file: $ENV_VARS_FILE"
+        ENV_VARS_ARGS="--env-vars-file=$ENV_VARS_FILE"
+    fi
 fi
 
 gcloud run deploy $GCP_FUNCTION_NAME \
@@ -116,6 +146,10 @@ gcloud run deploy $GCP_FUNCTION_NAME \
   $ENV_VARS_ARGS \
   --project=$PROJECT_ID \
 
-echo -e "\n====== Instrumenting with datadog-ci ======"
-echo "Using sidecar image: $SIDECAR_IMAGE"
-datadog-ci cloud-run instrument --project=$PROJECT_ID --region=$REGION --service=$GCP_FUNCTION_NAME --sidecar-image=$SIDECAR_IMAGE
+if [ "$COMPAT_LAYER" = "true" ]; then
+    echo -e "\n====== Deployment Complete (compat layer mode, no sidecar) ======"
+else
+    echo -e "\n====== Instrumenting with datadog-ci ======"
+    echo "Using sidecar image: $SIDECAR_IMAGE"
+    datadog-ci cloud-run instrument --project=$PROJECT_ID --region=$REGION --service=$GCP_FUNCTION_NAME --sidecar-image=$SIDECAR_IMAGE
+fi
