@@ -43,7 +43,7 @@ gcloud config set project ${PROJECT_ID}
 gcloud auth configure-docker ${REGION}-docker.pkg.dev --quiet
 
 echo -e "\n====== Building Docker image ======"
-docker build --platform linux/amd64 --build-arg DD_SERVICE=${DD_SERVICE} -t ${IMAGE_NAME} .
+docker build --platform linux/amd64 --build-arg DD_SERVICE=${DD_SERVICE} --build-arg DD_TRACER_DOTNET_VERSION=${DD_TRACER_DOTNET_VERSION} -t ${IMAGE_NAME} .
 docker push ${IMAGE_NAME}
 
 # Deploy to Cloud Run

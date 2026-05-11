@@ -26,11 +26,18 @@ EXPOSE 8080
 # Copy Datadog serverless-init
 COPY --from=datadog/serverless-init:1 / /app/
 
-# Install dependencies for Datadog .NET tracer installation
-RUN apt-get update --allow-releaseinfo-change && apt-get install -y --no-install-recommends curl jq && rm -rf /var/lib/apt/lists/*
-
-# Install Datadog .NET tracer
-RUN chmod +x /app/dotnet.sh && /app/dotnet.sh
+# Install Datadog .NET tracer (version resolved on host, see deploy-all-apps.sh)
+ARG DD_TRACER_DOTNET_VERSION
+RUN test -n "${DD_TRACER_DOTNET_VERSION}" \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends curl ca-certificates \
+    && rm -rf /var/lib/apt/lists/* \
+    && curl -sSL -o /tmp/datadog-dotnet-apm.tar.gz \
+       "https://github.com/DataDog/dd-trace-dotnet/releases/download/v${DD_TRACER_DOTNET_VERSION}/datadog-dotnet-apm-${DD_TRACER_DOTNET_VERSION}.tar.gz" \
+    && mkdir -p /dd_tracer/dotnet \
+    && tar -xzf /tmp/datadog-dotnet-apm.tar.gz -C /dd_tracer/dotnet \
+    && rm /tmp/datadog-dotnet-apm.tar.gz \
+    && /dd_tracer/dotnet/createLogPath.sh
 
 # Datadog configuration
 ARG DD_SERVICE
