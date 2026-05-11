@@ -9,6 +9,8 @@ updates:
       npm-dependencies:
         patterns:
           - "*"
+    cooldown:
+      default-days: 2
   - package-ecosystem: "npm"
     directory: "/cloud-run/in-container/node"
     schedule:
@@ -17,6 +19,8 @@ updates:
       npm-dependencies:
         patterns:
           - "*"
+    cooldown:
+      default-days: 2
   - package-ecosystem: "npm"
     directory: "/cloud-run-functions/node"
     schedule:
@@ -25,6 +29,8 @@ updates:
       npm-dependencies:
         patterns:
           - "*"
+    cooldown:
+      default-days: 2
 
   # Python
   - package-ecosystem: "pip"
@@ -35,6 +41,8 @@ updates:
       python-dependencies:
         patterns:
           - "*"
+    cooldown:
+      default-days: 2
   - package-ecosystem: "pip"
     directory: "/cloud-run/in-container/python"
     schedule:
@@ -43,6 +51,8 @@ updates:
       python-dependencies:
         patterns:
           - "*"
+    cooldown:
+      default-days: 2
   - package-ecosystem: "pip"
     directory: "/cloud-run-functions/python"
     schedule:
@@ -51,6 +61,8 @@ updates:
       python-dependencies:
         patterns:
           - "*"
+    cooldown:
+      default-days: 2
 
   # Go
   - package-ecosystem: "gomod"
@@ -61,6 +73,8 @@ updates:
       go-dependencies:
         patterns:
           - "*"
+    cooldown:
+      default-days: 2
   - package-ecosystem: "gomod"
     directory: "/cloud-run/in-container/go"
     schedule:
@@ -69,6 +83,8 @@ updates:
       go-dependencies:
         patterns:
           - "*"
+    cooldown:
+      default-days: 2
   - package-ecosystem: "gomod"
     directory: "/cloud-run-functions/go"
     schedule:
@@ -77,6 +93,8 @@ updates:
       go-dependencies:
         patterns:
           - "*"
+    cooldown:
+      default-days: 2
 
   # Java
   - package-ecosystem: "maven"
@@ -87,6 +105,8 @@ updates:
       java-dependencies:
         patterns:
           - "*"
+    cooldown:
+      default-days: 2
   - package-ecosystem: "maven"
     directory: "/cloud-run/in-container/java"
     schedule:
@@ -95,6 +115,8 @@ updates:
       java-dependencies:
         patterns:
           - "*"
+    cooldown:
+      default-days: 2
   - package-ecosystem: "maven"
     directory: "/cloud-run-functions/java"
     schedule:
@@ -103,6 +125,8 @@ updates:
       java-dependencies:
         patterns:
           - "*"
+    cooldown:
+      default-days: 2
 
   # .NET
   - package-ecosystem: "nuget"
@@ -113,6 +137,8 @@ updates:
       dotnet-dependencies:
         patterns:
           - "*"
+    cooldown:
+      default-days: 2
   - package-ecosystem: "nuget"
     directory: "/cloud-run/in-container/dotnet"
     schedule:
@@ -121,6 +147,8 @@ updates:
       dotnet-dependencies:
         patterns:
           - "*"
+    cooldown:
+      default-days: 2
   - package-ecosystem: "nuget"
     directory: "/cloud-run-functions/dotnet"
     schedule:
@@ -129,6 +157,8 @@ updates:
       dotnet-dependencies:
         patterns:
           - "*"
+    cooldown:
+      default-days: 2
 
   # Ruby
   - package-ecosystem: "bundler"
@@ -139,6 +169,8 @@ updates:
       ruby-dependencies:
         patterns:
           - "*"
+    cooldown:
+      default-days: 2
   - package-ecosystem: "bundler"
     directory: "/cloud-run/in-container/ruby"
     schedule:
@@ -147,6 +179,8 @@ updates:
       ruby-dependencies:
         patterns:
           - "*"
+    cooldown:
+      default-days: 2
   - package-ecosystem: "bundler"
     directory: "/cloud-run-functions/ruby"
     schedule:
@@ -155,6 +189,8 @@ updates:
       ruby-dependencies:
         patterns:
           - "*"
+    cooldown:
+      default-days: 2
 
   # Cloud Run Jobs
   - package-ecosystem: "npm"
@@ -165,6 +201,8 @@ updates:
       npm-dependencies:
         patterns:
           - "*"
+    cooldown:
+      default-days: 2
   - package-ecosystem: "pip"
     directory: "/cloud-run-jobs/python"
     schedule:
@@ -173,6 +211,8 @@ updates:
       python-dependencies:
         patterns:
           - "*"
+    cooldown:
+      default-days: 2
   - package-ecosystem: "gomod"
     directory: "/cloud-run-jobs/go"
     schedule:
@@ -181,6 +221,8 @@ updates:
       go-dependencies:
         patterns:
           - "*"
+    cooldown:
+      default-days: 2
   - package-ecosystem: "maven"
     directory: "/cloud-run-jobs/java"
     schedule:
@@ -189,6 +231,8 @@ updates:
       java-dependencies:
         patterns:
           - "*"
+    cooldown:
+      default-days: 2
   - package-ecosystem: "nuget"
     directory: "/cloud-run-jobs/dotnet"
     schedule:
@@ -197,6 +241,8 @@ updates:
       dotnet-dependencies:
         patterns:
           - "*"
+    cooldown:
+      default-days: 2
   - package-ecosystem: "bundler"
     directory: "/cloud-run-jobs/ruby"
     schedule:
@@ -205,6 +251,8 @@ updates:
       ruby-dependencies:
         patterns:
           - "*"
+    cooldown:
+      default-days: 2
 
   # PHP - Cloud Run only (not supported in Functions, no composer deps in jobs)
   - package-ecosystem: "composer"
@@ -215,6 +263,8 @@ updates:
       php-dependencies:
         patterns:
           - "*"
+    cooldown:
+      default-days: 2
   - package-ecosystem: "composer"
     directory: "/cloud-run/in-container/php"
     schedule:
@@ -223,3 +273,5 @@ updates:
       php-dependencies:
         patterns:
           - "*"
+    cooldown:
+      default-days: 2
