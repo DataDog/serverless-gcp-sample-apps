@@ -5,6 +5,9 @@ terraform.tfstate*
 
 node_modules/
 
+__pycache__/
+*.pyc
+
 target/
 *.class
 
