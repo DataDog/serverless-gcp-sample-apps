@@ -275,3 +275,36 @@ updates:
           - "*"
     cooldown:
       default-days: 2
+
+  # Docker base images
+  - package-ecosystem: "docker"
+    directories:
+      - "/cloud-run/in-container/dotnet"
+      - "/cloud-run/in-container/go"
+      - "/cloud-run/in-container/java"
+      - "/cloud-run/in-container/node"
+      - "/cloud-run/in-container/php"
+      - "/cloud-run/in-container/python"
+      - "/cloud-run/in-container/ruby"
+      - "/cloud-run/sidecar/dotnet"
+      - "/cloud-run/sidecar/go"
+      - "/cloud-run/sidecar/java"
+      - "/cloud-run/sidecar/node"
+      - "/cloud-run/sidecar/php"
+      - "/cloud-run/sidecar/python"
+      - "/cloud-run/sidecar/ruby"
+      - "/cloud-run-jobs/dotnet"
+      - "/cloud-run-jobs/go"
+      - "/cloud-run-jobs/java"
+      - "/cloud-run-jobs/node"
+      - "/cloud-run-jobs/php"
+      - "/cloud-run-jobs/python"
+      - "/cloud-run-jobs/ruby"
+    schedule:
+      interval: "monthly"
+    groups:
+      docker-dependencies:
+        patterns:
+          - "*"
+    cooldown:
+      default-days: 2

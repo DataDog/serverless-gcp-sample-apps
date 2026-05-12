@@ -16,6 +16,15 @@ export PROJECT_ID="datadog-serverless-gcp-demo"
 export REGION="us-central1"
 export REPO_NAME="gcp-sample-apps"
 
+echo "Resolving latest dd-trace-dotnet release..."
+DD_TRACER_DOTNET_VERSION=$(gh api repos/DataDog/dd-trace-dotnet/releases/latest --jq '.tag_name' | sed 's/^v//')
+if [ -z "$DD_TRACER_DOTNET_VERSION" ]; then
+  echo "error: could not resolve dd-trace-dotnet version via 'gh api'" >&2
+  exit 1
+fi
+export DD_TRACER_DOTNET_VERSION
+echo "Using dd-trace-dotnet v${DD_TRACER_DOTNET_VERSION}"
+
 PRODUCTS=("cloud-run/in-container/" "cloud-run/sidecar/" "cloud-run-functions/" "cloud-run-jobs/")
 LANGUAGES=("python" "node" "go" "java" "dotnet" "ruby" "php")
 

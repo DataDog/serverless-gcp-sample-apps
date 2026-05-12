@@ -5,7 +5,7 @@
 # Datadog (https://www.datadoghq.com/)
 # Copyright 2025-present Datadog, Inc.
 
-FROM openjdk:21-jdk-slim
+FROM eclipse-temurin:21-jdk
 
 # ca-certificates is required for slim images
 RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates
