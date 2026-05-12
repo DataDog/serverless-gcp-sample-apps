@@ -3,8 +3,8 @@ module golang-test-app
 go 1.25.0
 
 require (
-	github.com/DataDog/dd-trace-go/contrib/sirupsen/logrus/v2 v2.7.3
-	github.com/DataDog/dd-trace-go/v2 v2.7.3
+	github.com/DataDog/dd-trace-go/contrib/sirupsen/logrus/v2 v2.8.1
+	github.com/DataDog/dd-trace-go/v2 v2.8.1
 	github.com/sirupsen/logrus v1.9.4
 )
 
@@ -67,6 +67,7 @@ require (
 	go.opentelemetry.io/otel v1.41.0 // indirect
 	go.opentelemetry.io/otel/metric v1.41.0 // indirect
 	go.opentelemetry.io/otel/trace v1.41.0 // indirect
+	go.opentelemetry.io/proto/otlp v1.9.0 // indirect
 	go.uber.org/atomic v1.11.0 // indirect
 	go.uber.org/multierr v1.11.0 // indirect
 	go.uber.org/zap v1.27.1 // indirect
