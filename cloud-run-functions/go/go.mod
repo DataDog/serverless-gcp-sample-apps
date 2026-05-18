@@ -5,8 +5,8 @@ go 1.25.0
 toolchain go1.26.2
 
 require (
-	github.com/DataDog/dd-trace-go/contrib/sirupsen/logrus/v2 v2.8.1
-	github.com/DataDog/dd-trace-go/v2 v2.8.1
+	github.com/DataDog/dd-trace-go/contrib/sirupsen/logrus/v2 v2.8.2
+	github.com/DataDog/dd-trace-go/v2 v2.8.2
 	github.com/GoogleCloudPlatform/functions-framework-go v1.9.2
 	github.com/sirupsen/logrus v1.9.4
 )
