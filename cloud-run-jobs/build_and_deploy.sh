@@ -53,7 +53,7 @@ gcloud run jobs deploy $GCP_JOB_NAME \
   --region=$REGION \
   --memory=1024Mi \
   --cpu=1 \
-  --set-env-vars=DD_API_KEY=$DD_API_KEY \
+  --update-env-vars=DD_API_KEY=$DD_API_KEY \
   --labels=service=$DD_SERVICE \
   --project=$PROJECT_ID
 
