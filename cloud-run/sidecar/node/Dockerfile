@@ -5,7 +5,7 @@
 # Datadog (https://www.datadoghq.com/)
 # Copyright 2025-present Datadog, Inc.
 
-FROM node:22-slim
+FROM node:26-slim
 
 WORKDIR /app
 

@@ -5,7 +5,7 @@
 # Datadog (https://www.datadoghq.com/)
 # Copyright 2025-present Datadog, Inc.
 
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:10.0.300 AS build
 WORKDIR /app
 
 COPY *.csproj ./
@@ -14,7 +14,7 @@ RUN dotnet restore dotnet.csproj
 COPY . .
 RUN dotnet publish dotnet.csproj -c Release -o out --no-restore
 
-FROM mcr.microsoft.com/dotnet/aspnet:8.0
+FROM mcr.microsoft.com/dotnet/aspnet:10.0.8
 WORKDIR /app
 
 # Copy the built application
