@@ -97,6 +97,19 @@ fi
 echo -e "${GREEN}✅ Remote refs updated${RESET}"
 echo ""
 
+# Create a new branch if running from main
+MAIN_BRANCH=$(git remote show origin | grep 'HEAD branch' | cut -d' ' -f5)
+CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+if [[ "$CURRENT_BRANCH" == "$MAIN_BRANCH" ]]; then
+    BRANCH_NAME="chore/combine-bot-updates-$(date +%Y%m%d)"
+    echo -e "${YELLOW}Creating new branch: ${BRANCH_NAME}${RESET}"
+    git checkout -b "$BRANCH_NAME"
+    CURRENT_BRANCH="$BRANCH_NAME"
+else
+    echo -e "${GREEN}Already on non-main branch: ${CURRENT_BRANCH}${RESET}"
+fi
+echo ""
+
 # Arrays to track results
 declare -a SUCCESSFUL_PRS
 declare -a FAILED_PRS
@@ -186,7 +199,6 @@ fi
 
 # Push branch
 echo -e "${YELLOW}Pushing branch to origin...${RESET}"
-CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
 
 if git push -u origin "${CURRENT_BRANCH}" 2>&1; then
     echo -e "${GREEN}✅ Branch pushed${RESET}"
