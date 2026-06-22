@@ -12,6 +12,11 @@
 set -e
 cd "$(dirname "$0")"
 
+if [ -z "$DD_API_KEY" ]; then
+  echo "error: DD_API_KEY is not set" >&2
+  exit 1
+fi
+
 export PROJECT_ID="datadog-serverless-gcp-demo"
 export REGION="us-central1"
 export REPO_NAME="gcp-sample-apps"
