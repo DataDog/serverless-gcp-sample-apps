@@ -1,7 +1,7 @@
 {
   "main": "main.js",
   "dependencies": {
-    "dd-trace": "^5.105.0",
+    "dd-trace": "^5.110.0",
     "winston": "^3.19.0"
   }
 }
