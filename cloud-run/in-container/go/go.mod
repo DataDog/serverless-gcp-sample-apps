@@ -3,9 +3,9 @@ module golang-test-app
 go 1.25.0
 
 require (
-	github.com/DataDog/dd-trace-go/contrib/net/http/v2 v2.8.2
-	github.com/DataDog/dd-trace-go/contrib/sirupsen/logrus/v2 v2.8.2
-	github.com/DataDog/dd-trace-go/v2 v2.8.2
+	github.com/DataDog/dd-trace-go/contrib/net/http/v2 v2.9.1
+	github.com/DataDog/dd-trace-go/contrib/sirupsen/logrus/v2 v2.9.1
+	github.com/DataDog/dd-trace-go/v2 v2.9.1
 	github.com/sirupsen/logrus v1.9.4
 )
 
@@ -40,7 +40,7 @@ require (
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/hashicorp/go-version v1.8.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
-	github.com/klauspost/compress v1.18.4 // indirect
+	github.com/klauspost/compress v1.18.6 // indirect
 	github.com/klauspost/cpuid/v2 v2.3.0 // indirect
 	github.com/linkdata/deadlock v0.5.5 // indirect
 	github.com/lufia/plan9stats v0.0.0-20260216142805-b3301c5f2a88 // indirect
@@ -75,7 +75,7 @@ require (
 	go.uber.org/zap v1.27.1 // indirect
 	go.yaml.in/yaml/v3 v3.0.4 // indirect
 	golang.org/x/exp v0.0.0-20260209203927-2842357ff358 // indirect
-	golang.org/x/mod v0.33.0 // indirect
+	golang.org/x/mod v0.34.0 // indirect
 	golang.org/x/sys v0.46.0 // indirect
 	golang.org/x/time v0.15.0 // indirect
 	golang.org/x/xerrors v0.0.0-20240903120638-7835f813f4da // indirect
