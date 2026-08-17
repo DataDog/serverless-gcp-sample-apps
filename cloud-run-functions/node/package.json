@@ -4,5 +4,19 @@
     "@google-cloud/functions-framework": "^5.0.2",
     "dd-trace": "^5.110.0",
     "winston": "^3.19.0"
+  },
+  "overrides": {
+    "@google-cloud/functions-framework": {
+      "cloudevents": {
+        "ajv": {
+          "fast-uri": "^3.1.5"
+        },
+        "ajv-formats": {
+          "ajv": {
+            "fast-uri": "^3.1.5"
+          }
+        }
+      }
+    }
   }
 }
