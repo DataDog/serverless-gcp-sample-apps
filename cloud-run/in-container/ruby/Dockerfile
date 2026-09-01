@@ -5,7 +5,7 @@
 # Datadog (https://www.datadoghq.com/)
 # Copyright 2025-present Datadog, Inc.
 
-FROM ruby:4.0.5-slim
+FROM ruby:4.0.6-slim
 
 # Install build dependencies and ca-certificates
 RUN apt-get update && apt-get install -y --no-install-recommends \

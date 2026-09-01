@@ -5,7 +5,7 @@
 # Datadog (https://www.datadoghq.com/)
 # Copyright 2025-present Datadog, Inc.
 
-FROM python:3.14.6-slim
+FROM python:3.14.7-slim
 
 WORKDIR /app
 
