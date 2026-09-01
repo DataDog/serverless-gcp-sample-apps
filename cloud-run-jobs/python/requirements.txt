@@ -1,4 +1,4 @@
-datadog==0.52.2
-ddtrace==4.10.5
-gunicorn==26.0.0
+datadog==0.53.0
+ddtrace==4.14.0
+gunicorn==26.2.0
 structlog==26.1.0
