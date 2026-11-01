@@ -5,7 +5,7 @@
 # Datadog (https://www.datadoghq.com/)
 # Copyright 2025-present Datadog, Inc.
 
-FROM php:8.5.10-apache
+FROM php:8.5.11-apache
 
 WORKDIR /var/www/html
 
