@@ -3,7 +3,7 @@ GEM
   specs:
     base64 (0.3.0)
     cgi (0.5.2)
-    datadog (2.42.0)
+    datadog (2.43.0)
       cgi
       datadog-ruby_core_source (~> 3.5, >= 3.5.5)
       libdatadog (~> 40.0.0.2.0)
@@ -20,7 +20,7 @@ GEM
     libddwaf (1.30.0.0.2-x86_64-linux)
       ffi (~> 1.0)
     logger (1.7.0)
-    msgpack (1.8.4)
+    msgpack (1.8.5)
     mustermann (3.0.4)
       ruby2_keywords (~> 0.0.1)
     nio4r (2.7.5)
